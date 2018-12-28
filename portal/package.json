@@ -1,0 +1,13 @@
+{
+  "name": "xRain-community-ui",
+  "version": "0.1.0",
+  "description": "A portal site about xRain community version.",
+  "main": "index.js",
+  "repository": "https://github.com/AaronZhangL/az-svea-xrain-community.git",
+  "author": "Aaron.Z",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.84.0"
+  }
+}
