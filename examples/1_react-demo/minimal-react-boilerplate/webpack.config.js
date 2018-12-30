@@ -24,7 +24,9 @@ module.exports = {
   ],
   devServer: {
     contentBase: './dist',
-    host: true
+    //host: true
+    host: '0.0.0.0',
+    useLocalIp: true,
   }
 };
 
