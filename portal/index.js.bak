@@ -1,6 +1,0 @@
-function hello(){
-  console.log(`hello node.js!\n Using ${process.version} node version.`);
-}
-
-hello();
-
