@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux'
-import { 
+import {
   CHANGE_NAME, CHANGE_AGE, INITIALIZE_FORM,
-  REQUEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED
+  REQUEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED,
+  CHANGE_HLTYPE
 } from './actions'
 
 const initialState = {
   form: {
     name: '',
     age: '',
+    hltype: '',
   },
   characters: {
     isFetching: false,
@@ -29,6 +31,11 @@ const formReducer = (state = initialState.form, action) => {
       }
     case INITIALIZE_FORM:
       return initialState.form
+    case CHANGE_HLTYPE: //xRain
+      return {
+        ...state,
+        hltype: action.hltype,
+      }
     default:
       return state
   }

@@ -19,11 +19,12 @@ mongoose.connect(dbUrl, { useMongoClient: true }, dbErr => {
   else console.log('db connected')
 
   app.post('/api/characters', (request, response) => {
-    const { name, age } = request.body
+    const { name, age, hltype } = request.body
 
     new Character({
       name,
       age,
+      hltype,
     }).save(err => {
       if (err) response.status(500)
       else {
