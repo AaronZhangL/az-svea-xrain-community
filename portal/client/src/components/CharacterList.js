@@ -53,7 +53,7 @@ const CharacterList = ({ store }) => {
   }
 
   return (
-    <div style={{float: 'left', margin: '17px 0px 0px 0px', width: '1400px', height: '500px'}}>
+    <div style={{float: 'left', margin: '0px 0px 0px 0px', width: '1400px', height: '100px'}}>
       {
         isFetching
           ? <h2>Now Loading...</h2>
@@ -65,6 +65,9 @@ const CharacterList = ({ store }) => {
                     {`${character.name} (${character.age})`}
                     <button onClick={() => handleUpdateCharacter(character._id)}>+1</button>
                     <button onClick={() => handleDeleteCharacter(character._id)}>delete</button>
+                    <p>{`[hltype/hlcontent]${character.hltype} (${character.hlcontent})`}</p>
+                    <p>{`[hlsummary]${character.hlsummary}`}</p>
+                    <p>{`[mltype/mlcontent]${character.mltype} (${character.mlcontent})`}</p>
                   </li>
                 ))}
               </ul>
