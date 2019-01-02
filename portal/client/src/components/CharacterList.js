@@ -10,7 +10,7 @@ const CharacterList = ({ store }) => {
     axios.get('/api/characters')
     .then(response => {
       const _characterArray = response.data
-      store.dispatch(receiveDataSuccess(_characterArray))  
+      store.dispatch(receiveDataSuccess(_characterArray))
     })
     .catch(err => {
       console.error(new Error(err))
@@ -53,7 +53,7 @@ const CharacterList = ({ store }) => {
   }
 
   return (
-    <div>
+    <div style={{float: 'left', margin: '17px 0px 0px 0px', width: '1400px', height: '500px'}}>
       {
         isFetching
           ? <h2>Now Loading...</h2>
@@ -61,7 +61,7 @@ const CharacterList = ({ store }) => {
               <button onClick={() => handleFetchData()}>fetch data</button>
               <ul>
                 {characterArray.map(character => (
-                  <li key={character._id}>  
+                  <li key={character._id}>
                     {`${character.name} (${character.age})`}
                     <button onClick={() => handleUpdateCharacter(character._id)}>+1</button>
                     <button onClick={() => handleDeleteCharacter(character._id)}>delete</button>

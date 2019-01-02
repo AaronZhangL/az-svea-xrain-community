@@ -5,7 +5,10 @@ export const REQUEST_DATA         = 'REQUEST_DATA'
 export const RECEIVE_DATA_SUCCESS = 'RECEIVE_DATA_SUCCESS'
 export const RECEIVE_DATA_FAILED  = 'RECEIVE_DATA_FAILED'
 //xRain
-export const CHANGE_HLTYPE = 'CHANGE_HLTYPE'
+export const CHANGE_HLTYPE = 'CHANGE_HLTYPE' //Human Language type
+export const CHANGE_HLCONTENT = 'CHANGE_HLCONTENT' //Human Language content
+export const CHANGE_MLTYPE = 'CHANGE_MLTYPE' //Machine Language type
+export const CHANGE_MLCONTENT = 'CHANGE_MLCONTENT' //Machine Language content
 
 export const changeName = name => ({
   type: CHANGE_NAME,
@@ -33,4 +36,16 @@ export const receiveDataFailed = () => ({
 export const changeHltype = hltype => ({
   type: CHANGE_HLTYPE,
   hltype,
+})
+export const changeHlcontent = hlcontent => ({
+  type: CHANGE_HLCONTENT,
+  hlcontent,
+})
+export const changeMltype = mltype => ({
+  type: CHANGE_MLTYPE,
+  mltype,
+})
+export const changeMlcontent = mlcontent => ({
+  type: CHANGE_MLCONTENT,
+  mlcontent,
 })
