@@ -9,6 +9,7 @@ const CharacterSchema = new mongoose.Schema({
   hlcontent: String,
   mltype: String,
   mlcontent: String,
+  hlsummary: String,
 })
 
 const Character = mongoose.model('Character', CharacterSchema)

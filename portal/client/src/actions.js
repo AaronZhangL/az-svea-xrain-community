@@ -7,6 +7,7 @@ export const RECEIVE_DATA_FAILED  = 'RECEIVE_DATA_FAILED'
 //xRain
 export const CHANGE_HLTYPE = 'CHANGE_HLTYPE' //Human Language type
 export const CHANGE_HLCONTENT = 'CHANGE_HLCONTENT' //Human Language content
+export const CHANGE_HLSUMMARY = 'CHANGE_HLSUMMARY' //Human Language summary
 export const CHANGE_MLTYPE = 'CHANGE_MLTYPE' //Machine Language type
 export const CHANGE_MLCONTENT = 'CHANGE_MLCONTENT' //Machine Language content
 
@@ -48,4 +49,8 @@ export const changeMltype = mltype => ({
 export const changeMlcontent = mlcontent => ({
   type: CHANGE_MLCONTENT,
   mlcontent,
+})
+export const changeHlsummary = hlsummary => ({
+  type: CHANGE_HLSUMMARY,
+  hlsummary,
 })

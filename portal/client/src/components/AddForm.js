@@ -3,13 +3,13 @@ import axios from 'axios'
 import {
   changeName, changeAge, initializeForm,
   requestData, receiveDataSuccess, receiveDataFailed,
-  changeHltype, changeHlcontent, changeMltype, changeMlcontent
+  changeHltype, changeHlcontent, changeMltype, changeMlcontent, changeHlsummary
 } from '../actions'
 //xRain
 //import Select from 'react-select';
 
 const AddForm = ({ store }) => {
-  const { name, age, hltype, hlcontent, mltype, mlcontent } = store.getState().form
+  const { name, age, hltype, hlcontent, mltype, mlcontent, hlsummary } = store.getState().form
   //xRain Start
 
   //xRain end
@@ -24,6 +24,7 @@ const AddForm = ({ store }) => {
       hlcontent,
       mltype,
       mlcontent,
+      hlsummary,
     })
     .then(response => {
       store.dispatch(initializeForm())
@@ -37,7 +38,7 @@ const AddForm = ({ store }) => {
   }
 
   return (
-    <div style={{width:'1400px', height:'500px'}}>
+    <div style={{width:'2100px', height:'500px'}}>
       <form onSubmit={e => handleSubmit(e)}>
         <div style={{float: 'left', margin: '0px 0px 0px 10px'}}>
           <label>
@@ -57,8 +58,20 @@ const AddForm = ({ store }) => {
           </p>
           <p>
             <textarea value={hlcontent} onChange={e => store.dispatch(changeHlcontent(e.target.value))}
-            cols="80" rows="40"/>
+            cols="80" rows="20"/>
           </p>
+          </label>
+        </div>
+
+        <div style={{float: 'left', margin: '16px 0px 0px 10px' }}>
+          <label>
+            <p>
+            Summary Human Language:
+            </p>
+            <p>
+              <textarea value={hlsummary} onChange={e => store.dispatch(changeHlsummary(e.target.value))}
+              cols="80" rows="20"/>
+            </p>
           </label>
         </div>
 
@@ -91,10 +104,11 @@ const AddForm = ({ store }) => {
             </p>
             <p>
               <textarea value={mlcontent} onChange={e => store.dispatch(changeMlcontent(e.target.value))}
-              cols="80" rows="40"/>
+              cols="80" rows="20"/>
             </p>
           </label>
         </div>
+
         <div style={{float: 'left', margin: '0px 0px 0px 0px' }}>
         <p>
         <label>
