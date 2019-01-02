@@ -40,7 +40,7 @@ const AddForm = ({ store }) => {
   return (
     <div style={{width:'2100px', height:'500px'}}>
       <form onSubmit={e => handleSubmit(e)}>
-        <div style={{float: 'left', margin: '0px 0px 0px 10px'}}>
+        <div style={{float: 'left', margin: '0px 0px 0px 10px', backgroundColor:"#FFFF00"}}>
           <label>
           <p>Human Language:
           <select value={hltype} onChange={e => store.dispatch(changeHltype(e.target.value))} >
@@ -63,19 +63,19 @@ const AddForm = ({ store }) => {
           </label>
         </div>
 
-        <div style={{float: 'left', margin: '16px 0px 0px 10px' }}>
+        <div style={{float: 'left', margin: '0px 0px 0px 10px'}}>
           <label>
             <p>
             Summary Human Language:
             </p>
             <p>
               <textarea value={hlsummary} onChange={e => store.dispatch(changeHlsummary(e.target.value))}
-              cols="80" rows="20"/>
+              cols="80" rows="21"/>
             </p>
           </label>
         </div>
 
-        <div style={{float: 'left', margin: '2.5px 0px 0px 10px' }}>
+        <div style={{float: 'left', margin: '0px 0px 0px 10px',backgroundColor:"#0080FF"}}>
           <label>
             <p>
             Machine Language:
@@ -99,7 +99,7 @@ const AddForm = ({ store }) => {
               <option value="ms-sql-server" disabled>MS SQL Server</option>
               <option value="mysql" disabled>MySQL</option>
             </select>
-              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
               <button type="submit">submit</button>
             </p>
             <p>
