@@ -9,13 +9,22 @@ https://developer.fedoraproject.org/tech/database/mongodb/about.html
 
 ## Run command
 ### NodeJs client(port: 3000)
+
 $ cd portal/client
+
 $ npm start
 
 ### NodeJs server(port: 3001)
+
+$ cd portal/client
+
+$ npm run-script build
+
 $ cd portal/
+
 $ npm start  // run command 'babel-node server.js'
 
 ### MongoDB
 
 $ mongod
+$ show dbs
