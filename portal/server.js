@@ -8,6 +8,8 @@ const app = express()
 const port = process.env.PORT || 3001
 //const dbUrl = process.env.MONGODB_URI
 const dbUrl = 'mongodb://localhost/crud'
+// call rest api
+
 
 app.use(express.static(path.join(__dirname, 'client/build')))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -21,7 +23,7 @@ mongoose.connect(dbUrl, { useMongoClient: true }, dbErr => {
   app.post('/api/characters', (request, response) => {
     const { name, age, hltype, hlcontent, mltype, mlcontent, hlsummary } = request.body
 
-    new Character({
+    var character = new Character({
       name,
       age,
       hltype,
@@ -29,7 +31,15 @@ mongoose.connect(dbUrl, { useMongoClient: true }, dbErr => {
       mltype,
       mlcontent,
       hlsummary,
-    }).save(err => {
+    });
+    character.save(function(err,record) {
+      console.log("record ID is: " + record.id);
+      const request = require('request');
+      request('http://localhost:9000/keywordsList?content='+ record.id, { json: true }, (err1, res, body) => {
+        if (err1) { return console.log(err1); }
+        console.log("Back value from python API server: " + body);
+      });
+
       if (err) response.status(500)
       else {
         Character.find({}, (findErr, characterArray) => {
@@ -37,7 +47,8 @@ mongoose.connect(dbUrl, { useMongoClient: true }, dbErr => {
           else response.status(200).send(characterArray)
         })
       }
-    })
+    }
+  )
   })
 
   app.get('/api/characters', (request, response) => {
