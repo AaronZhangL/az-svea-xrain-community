@@ -8,6 +8,16 @@ https://qiita.com/ymr-39/items/573247b12ff0bc4e5d3c
 https://developer.fedoraproject.org/tech/database/mongodb/about.html
 
 ## Run command
+
+### Install npm package
+$ cd portal
+
+$ npm install
+
+$ cd portal/client
+
+$ npm install
+
 ### NodeJs client(port: 3000)
 
 $ cd portal/client
@@ -27,4 +37,5 @@ $ npm start  // run command 'babel-node server.js'
 ### MongoDB
 
 $ mongod
+
 $ show dbs
