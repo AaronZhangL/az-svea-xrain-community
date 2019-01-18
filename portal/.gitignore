@@ -1,7 +1,7 @@
 .DS_Store
 
 # Current project build files
-client/build
+build/
 
 # Logs
 logs
