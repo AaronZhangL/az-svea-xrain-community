@@ -10,6 +10,9 @@ https://developer.fedoraproject.org/tech/database/mongodb/about.html
 ## Run command
 
 ### Install npm package
+$ cd portal
+
+$ npm install
 
 $ cd portal/client
 
