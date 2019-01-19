@@ -8,11 +8,11 @@ export default function ContactCard({contact, deleteContact}) {
     <Card>
       <Card.Content>
         <Card.Header>
-          <Icon name='user outline'/> {contact.name.first} {contact.name.last}
+          <Icon className='user outline'/> {contact.name.first} {contact.name.last}
         </Card.Header>
         <Card.Description>
-          <p><Icon name='phone'/> {contact.phone}</p>
-          <p><Icon name='mail outline'/> {contact.email}</p>
+          <p><Icon className='phone'/> {contact.phone}</p>
+          <p><Icon className='mail outline'/> {contact.email}</p>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
