@@ -13,6 +13,7 @@
     "axios": "^0.16.0",
     "classnames": "^2.2.5",
     "mddir": "^1.1.0",
+    "prop-types": "^15.6.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",

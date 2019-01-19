@@ -6,14 +6,9 @@ import CharacterList from './CharacterList'
 
 
 class App extends Component {
-  //xRain
-  constructor(props) {
-    super(props);
-    this.state = {value: 'js-jp'};
+  //xRain strat
 
-    //this.handleChange = this.handleChange.bind(this);
-    //this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  //XRain end
 
   render() {
     return (

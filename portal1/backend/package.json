@@ -2,6 +2,7 @@
   "name": "backend",
   "description": "contacts api server",
   "version": "0.0.0",
+  "private": "true",
   "homepage": "",
   "main": "src",
   "keywords": [
