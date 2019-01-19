@@ -58,8 +58,8 @@ export default (state=defaultState, action={}) => {
     case 'SAVE_CONTACT_REJECTED': {
       const data = action.payload.response.data;
       // convert feathers error formatting to match client-side error formatting
-      const { "name.first":first, "name.last":last, phone, email } = data.errors;
-      const errors = { global: data.message, name: { first,last }, phone, email };
+      const { "name.first":first, "name.last":last, phone, email, human_language_request } = data.errors;
+      const errors = { global: data.message, name: { first,last }, phone, email, human_language_request};
       return {
         ...state,
         errors: errors,
@@ -103,8 +103,8 @@ export default (state=defaultState, action={}) => {
 
     case 'UPDATE_CONTACT_REJECTED': {
       const data = action.payload.response.data;
-      const { "name.first":first, "name.last":last, phone, email } = data.errors;
-      const errors = { global: data.message, name: { first,last }, phone, email };
+      const { "name.first":first, "name.last":last, phone, email, human_language_request} = data.errors;
+      const errors = { global: data.message, name: { first,last }, phone, email, human_language_request };
       return {
         ...state,
         errors: errors,

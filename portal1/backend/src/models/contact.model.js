@@ -32,6 +32,10 @@ module.exports = function (app) {
         message: '{VALUE} is not a valid international phone number!'
       }
     },
+    human_language_request : {
+      type: mongooseClient.SchemaTypes.String,
+      required: [true, 'human language request is required']
+    },
     createdAt: { type: Date, 'default': Date.now },
     updatedAt: { type: Date, 'default': Date.now }
   });

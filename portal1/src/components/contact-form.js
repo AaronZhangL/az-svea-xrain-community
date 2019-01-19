@@ -40,10 +40,10 @@ class ContactForm extends Component {
     }
   }
 
-  renderField = ({ input, label, type, meta: { touched, error } }) => (
+  renderField = ({ input, label, textarea, type, meta: { touched, error } }) => (
     <Form.Field className={classnames({error:touched && error})}>
       <label>{label}</label>
-      <input {...input} placeholder={label} type={type}/>
+      <textarea {...input} placeholder={label} type={type}/>
       {touched && error && <span className="error">{error.message}</span>}
     </Form.Field>
   )
@@ -61,6 +61,7 @@ class ContactForm extends Component {
             </Form.Group>
             <Field name="phone" type="text" component={this.renderField} label="Phone"/>
             <Field name="email" type="text" component={this.renderField} label="Email"/>
+            <Field name="human_language_request" type="text" component={this.renderField} label="Human Lanugage"/>
             <Button primary type='submit' disabled={pristine || submitting}>Save</Button>
           </Form>
         </Grid.Column>

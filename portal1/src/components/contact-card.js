@@ -13,6 +13,7 @@ export default function ContactCard({contact, deleteContact}) {
         <Card.Description>
           <p><Icon className='phone'/> {contact.phone}</p>
           <p><Icon className='mail outline'/> {contact.email}</p>
+          <p><Icon className='mail outline'/> {contact.human_language_request}</p>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
