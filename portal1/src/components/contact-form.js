@@ -63,10 +63,10 @@ class ContactForm extends Component {
     }
   }
 
-  renderField = ({ input, label, textarea, type, meta: { touched, error } }) => (
+  renderField = ({ input, label, textarea, type, rows, meta: { touched, error } }) => (
     <Form.Field className={classnames({error:touched && error})}>
       <label>{label}</label>
-      <textarea {...input} placeholder={label} type={type}/>
+      <textarea {...input} placeholder={label} type={type} rows={rows}/>
       {touched && error && <span className="error">{error.message}</span>}
     </Form.Field>
   )
@@ -137,18 +137,18 @@ class ContactForm extends Component {
               <Grid.Column>
                 <Segment>
                 <Field name="hl_type" type="select" component={this.renderSelectFieldHL} label="Human language type"/>
-                <Field name="human_language_request" type="text" component={this.renderField} label="Human Lanugage"/>
+                <Field name="human_language_request" type="text" component={this.renderField} rows="15" label="Human Lanugage"/>
                 </Segment>
               </Grid.Column>
               <Grid.Column>
                 <Segment>
-                  <Field name="human_language_summary" type="text" component={this.renderField} label="Summary By xRain"/>
+                  <Field name="human_language_summary" type="text" component={this.renderField} rows="20" label="Summary By xRain"/>
                 </Segment>
               </Grid.Column>
               <Grid.Column>
                 <Segment>
                 <Field name="ml_type" type="select" component={this.renderSelectFieldML} label="Machine language type"/>
-                <Field name="machine_language_response" type="text" component={this.renderField} label="Machine Lanugage"/>
+                <Field name="machine_language_response" type="text" component={this.renderField} rows="15" label="Machine Lanugage"/>
                 </Segment>
               </Grid.Column>
               </Grid.Row>
