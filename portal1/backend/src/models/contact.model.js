@@ -8,6 +8,7 @@ require('mongoose-type-email');
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const contact = new mongooseClient.Schema({
+    /*
     name : {
       first: {
         type: String,
@@ -32,6 +33,7 @@ module.exports = function (app) {
         message: '{VALUE} is not a valid international phone number!'
       }
     },
+    */
     hl_type : {
       type: mongooseClient.SchemaTypes.String,
       required: [true, 'Human language type is required']

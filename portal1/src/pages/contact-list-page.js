@@ -12,7 +12,7 @@ class ContactListPage extends Component {
   render() {
     return (
       <div>
-        <h1>List of Contacts</h1>
+        <h1>List of Request</h1>
         <ContactList contacts={this.props.contacts} loading={this.props.loading} errors={this.props.errors} deleteContact={this.props.deleteContact}/>
       </div>
     )

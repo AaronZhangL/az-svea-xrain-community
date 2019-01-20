@@ -8,13 +8,10 @@ export default function ContactCard({contact, deleteContact}) {
     <Card>
       <Card.Content>
         <Card.Header>
-          <Icon className='user outline'/> {contact.name.first} {contact.name.last}
-        </Card.Header>
-        <Card.Description>
-          <p><Icon className='phone'/> {contact.phone}</p>
-          <p><Icon className='mail outline'/> {contact.email}</p>
           <p><Icon className='mail outline'/> {contact.hl_type}</p>
           <p><Icon className='mail outline'/> {contact.human_language_request}</p>
+        </Card.Header>
+        <Card.Description>
           <p><Icon className='mail outline'/> {contact.human_language_summary}</p>
           <p><Icon className='mail outline'/> {contact.ml_type}</p>
           <p><Icon className='mail outline'/> {contact.machine_language_response}</p>
