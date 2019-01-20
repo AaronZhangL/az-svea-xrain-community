@@ -19,8 +19,8 @@ export default function ContactList({contacts, loading, errors, deleteContact}){
       <Message icon info>
         <Icon name='warning circle' />
         <Message.Content>
-           <Message.Header>No Contacts Found</Message.Header>
-           <p>Add some new contacts to get started.</p>
+           <Message.Header>No Request Found</Message.Header>
+           <p>New request to get started.</p>
            <Link to={'/contacts/new'} className="ui button primary">Add New Contact</Link>
        </Message.Content>
       </Message>
