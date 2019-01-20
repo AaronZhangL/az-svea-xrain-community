@@ -30,7 +30,7 @@ const validate = (values) => {
   }
   //xRain
 
-  if(values.hl_type == 'hl-none') {
+  if(values.hl_type === 'hl-none') {
     errors.hl_type = {
       message: 'You need to choose a human language type'
     }
@@ -41,7 +41,7 @@ const validate = (values) => {
       message: 'You need to input your request by human language'
     }
   }
-  if(values.ml_type == 'ml-none') {
+  if(values.ml_type === 'ml-none') {
     errors.ml_type = {
       message: 'You need to choose a machine language type'
     }
@@ -118,7 +118,8 @@ class ContactForm extends Component {
     return (
       <Grid centered columns={2}>
         <Grid.Column>
-          <h1 style={{marginTop:"1em"}}>{contact._id ? 'Edit Contact' : 'Add New Contact'}</h1>
+          <h1 style={{marginTop:"1em"}}>{contact._id ? 'Edit Request' : 'New Request'}</h1>
+
           <Form onSubmit={handleSubmit} loading={loading}>
             <Form.Group widths='equal'>
               <Field name="name.first" type="text" component={this.renderField} label="First Name"/>
@@ -126,6 +127,7 @@ class ContactForm extends Component {
             </Form.Group>
             <Field name="phone" type="text" component={this.renderField} label="Phone"/>
             <Field name="email" type="text" component={this.renderField} label="Email"/>
+
             <Field name="hl_type" type="select" component={this.renderSelectFieldHL} label="Human language type"/>
             <Field name="human_language_request" type="text" component={this.renderField} label="Human Lanugage"/>
             <Field name="human_language_summary" type="text" component={this.renderField} label="Summary By xRain"/>

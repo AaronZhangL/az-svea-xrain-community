@@ -9,8 +9,8 @@ class App extends Component {
     return (
       <Container>
         <div className="ui two item menu">
-          <NavLink className="item" activeClassName="active" exact to="/">Contacts List</NavLink>
-          <NavLink className="item" activeClassName="active" exact to="/contacts/new">Add Contact</NavLink>
+          <NavLink className="item" activeClassName="active" exact to="/contacts/new">Request</NavLink>
+          <NavLink className="item" activeClassName="active" exact to="/">Request List</NavLink>
         </div>
         <Route exact path="/" component={ContactListPage}/>
         <Route path="/contacts/new" component={ContactFormPage}/>
