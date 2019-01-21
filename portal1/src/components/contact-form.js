@@ -3,7 +3,7 @@ import { Form, Grid, Button, Segment, } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import classnames from 'classnames';
 //import { languageOptions } from '../common'
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const validate = (values) => {
   const errors = {name:{}};
@@ -123,7 +123,7 @@ class ContactForm extends Component {
     return (
       <Grid centered columns={1}>
         <Grid.Column>
-          <h1 style={{marginTop:"1em"}}>{contact._id ? 'Edit Request' : 'New Request'}</h1>
+          <h3 style={{marginTop:"1em"}}>{contact._id ? '==[Edit Request]==' : '==[New Request]=='}</h3>
           <Form onSubmit={handleSubmit} loading={loading}>
             {/*
             <Form.Group widths='equal'>

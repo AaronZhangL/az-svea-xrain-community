@@ -21,7 +21,7 @@ export default function ContactList({contacts, loading, errors, deleteContact}){
         <Message.Content>
            <Message.Header>No Request Found</Message.Header>
            <p>New request to get started.</p>
-           <Link to={'/contacts/new'} className="ui button primary">Add New Contact</Link>
+           <Link to={'/contacts/new'} className="ui button primary">Add New request</Link>
        </Message.Content>
       </Message>
     )
