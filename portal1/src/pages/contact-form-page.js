@@ -9,7 +9,8 @@ import ContactForm from '../components/contact-form';
 class ContactFormPage extends Component {
 
   state = {
-    redirect: false
+    redirect: false,
+    contact_id: ""
   }
 
   componentDidMount = () => {
@@ -24,7 +25,11 @@ class ContactFormPage extends Component {
   submit = (contact) => {
     if(!contact._id) {
       return this.props.saveContact(contact)
-        .then(response => this.setState({ redirect:true }))
+        .then(response => {
+          console.log(response.value.data._id);
+          this.setState({contact_id : response.value.data._id})
+          this.setState({ redirect:true })
+        })
         .catch(err => {
            throw new SubmissionError(this.props.errors)
          })
@@ -42,7 +47,7 @@ class ContactFormPage extends Component {
       <div>
         {
           this.state.redirect ?
-          <Redirect to="/" /> :
+          <Redirect to={`/contacts/edit/${this.state.contact_id}`} /> :
           <ContactForm contact={this.props.contact} loading={this.props.loading} onSubmit={this.submit} />
         }
       </div>
