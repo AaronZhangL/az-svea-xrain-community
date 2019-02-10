@@ -1,7 +1,11 @@
+import '@material/react-select/dist/select.css';
 import React, { Component } from 'react';
 import { Form, Grid, Button, Segment, } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import classnames from 'classnames';
+
+import Select from '@material/react-select';
+
 //import { languageOptions } from '../common'
 //import { Link } from 'react-router-dom';
 

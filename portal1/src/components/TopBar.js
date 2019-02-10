@@ -16,7 +16,7 @@ const TopBarComponent = () => {
         actionItems={[<MaterialIcon key='item' icon='bookmark' />]}
       />
       <TopAppBarFixedAdjust>
-        My exciting content!
+        ......
       </TopAppBarFixedAdjust>
     </div>
   );
