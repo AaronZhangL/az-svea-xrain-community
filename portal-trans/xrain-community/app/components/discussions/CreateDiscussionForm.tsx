@@ -59,7 +59,7 @@ class CreateDiscussionForm extends React.Component<Props, State> {
         {open ? (
           <Head>
             <title>New Discussion</title>
-            <meta name="description" content="Create new discussion" />
+            <meta name="description" content="Create new discussion aaron" />
           </Head>
         ) : null}
         <Drawer
