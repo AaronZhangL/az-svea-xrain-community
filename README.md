@@ -8,3 +8,7 @@ https://react.semantic-ui.com/
 ```
 pyenv virtualenv x.x.x your-env-name
 ```
+### Env version
+```
+miniconda3-4.3.30/envs/xrain-comm
+```
