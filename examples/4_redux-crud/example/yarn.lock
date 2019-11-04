@@ -4682,7 +4682,7 @@ request@^2.55.0, request@^2.79.0:
     mime-types "~2.1.7"
     oauth-sign "~0.8.1"
     qs "~6.3.0"
-    stringstream "~0.0.4"
+    stringstream "~0.0.6"
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
     uuid "^3.0.0"
