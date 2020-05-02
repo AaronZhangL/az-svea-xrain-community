@@ -16,4 +16,3 @@ https://github.com/appbaseio/reactivesearch/tree/dev/packages/web
 #### Demo
 
 https://scotch.io/tutorials/build-an-airbnb-clone-with-react-and-elasticsearch
-
