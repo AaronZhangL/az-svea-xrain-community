@@ -23,6 +23,10 @@ router.post('/regist',function(req,res){
     var token = req.session.csrfToken;
     //TokenをHidden Itemから取得する
     var ui_token = req.body._csrf
+    //console.log('Print post function secret/token/ui_token');
+    //console.log(secret);
+    //console.log(token);
+    //console.log(ui_token);
     //秘密文字とトークンの組み合わせが正しいかチェックする
     if (tokens.verify(secret, token) === false)
     {
