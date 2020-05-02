@@ -12,9 +12,9 @@
     <form action="/regist" method="post">
         <input type="submit" value="送信(Token無)">
     </form>
-    <form action="/regist" method="post">
-        <textarea id="hl_summary" name="hl_summary"><%= hl_summary %></textarea>
-        <textarea id="ml_source_code" name="ml_source_code"><%= ml_source_code %></textarea>
+    <form action="/" method="post">
+        <textarea id="hl_summary" name="hl_summary" style="margin: 0px; width: 600px; height: 225px;"><%= hl_summary %></textarea>
+        <textarea id="ml_source_code" name="ml_source_code" style="margin: 0px; width: 600px; height: 225px;"><%= ml_source_code %></textarea>
         <input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
         <input type="submit" value="送信(Token有)">
     </form>
