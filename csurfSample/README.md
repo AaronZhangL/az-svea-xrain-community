@@ -2,3 +2,23 @@ csurfSample
 ===========
 
 csurf use sample
+
+# Prepare env
+### 1. Install nodejs package
+```
+$ npm install --save express
+$ npm install --save csurf
+$ npm install --save express-session
+$ npm install --save connect-redis
+$ npm install
+```
+
+### 2. Run redis container
+```
+sh az-startRedisDocker.sh
+```
+
+### 3. Start app
+```
+sh az-startApp.sh
+```
