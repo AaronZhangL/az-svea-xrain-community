@@ -13,6 +13,8 @@
         <input type="submit" value="送信(Token無)">
     </form>
     <form action="/regist" method="post">
+        <textarea id="hl_summary" name="hl_summary"><%= hl_summary %></textarea>
+        <textarea id="ml_source_code" name="ml_source_code"><%= ml_source_code %></textarea>
         <input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
         <input type="submit" value="送信(Token有)">
     </form>
@@ -21,5 +23,7 @@
         <input type="submit" value="送信(Token有 Xhr無)">
     </form>
     <input id="xhrSubmit" type="submit" value="Ajax送信(Token有)">
+    <br/>
+
   </body>
 </html>

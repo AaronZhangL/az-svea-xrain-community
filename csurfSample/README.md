@@ -10,6 +10,7 @@ $ npm install --save express
 $ npm install --save csurf
 $ npm install --save express-session
 $ npm install --save connect-redis
+$ npm install -g nodemon
 $ npm install
 ```
 
