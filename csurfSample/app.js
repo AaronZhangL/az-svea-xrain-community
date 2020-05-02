@@ -5,8 +5,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 
 //session Use
-var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
+// var session = require('express-session');
+// var RedisStore = require('connect-redis')(session);
+
+const redis = require('redis')
+const session = require('express-session')
+let RedisStore = require('connect-redis')(session)
+let redisClient = redis.createClient({
+  host: 'localhost',
+  port: 6379,
+  //password: 'my secret',
+  db: 1,
+})
+redisClient.unref()
+redisClient.on('error', console.log)
+
 var bodyParser = require('body-parser');
 var csurf = require('csurf');
 
@@ -25,13 +38,16 @@ app.set('view engine', 'ejs');
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+// app.use(bodyParser.urlencoded());
+app.use(express.urlencoded({ extended: true }))
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //session setup
 app.use(session({resave: true,saveUninitialized: false,
-    store: new RedisStore({host:'localhost',port:6379}), secret: 'secret' }));
+    store: new RedisStore({ client: redisClient }),
+    secret: 'secret' }));
 app.use(csurf());
 
 app.use('/', routes);
