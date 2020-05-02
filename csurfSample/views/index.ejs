@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/javascripts/xhrAccess.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="/regist" method="post">
+        <input type="submit" value="送信(Token無)">
+    </form>
+    <form action="/regist" method="post">
+        <input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
+        <input type="submit" value="送信(Token有)">
+    </form>
+    <form action="/registXhr" method="post">
+        <input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
+        <input type="submit" value="送信(Token有 Xhr無)">
+    </form>
+    <input id="xhrSubmit" type="submit" value="Ajax送信(Token有)">
+  </body>
+</html>
