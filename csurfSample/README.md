@@ -29,3 +29,5 @@ sh az-startApp.sh
 ##### Reference
 (1) Node.js+ExpressでCSRF対策  
 https://qiita.com/kmatae/items/0ce25ac6bde0b301402a
+(2) Alternative libraries to request
+https://github.com/request/request/issues/3143
