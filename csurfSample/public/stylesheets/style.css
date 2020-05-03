@@ -1,8 +1,110 @@
 body {
-  padding: 50px;
+  padding: 5px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+/* Xrain Customize */
+.textarea-style {
+    margin:0px;
+    width: 660px;
+    height: 500px;
+    border: 1px solid #ddd;
+}
+.inline-block {
+    display: inline-block;      /* インラインブロック要素にする */
+    /* background-color:  #ccc; 背景色指定 */
+    padding: 5px;             /* 余白指定 */
+    margin: 0px;
+    width: 660px;
+    height: 500px;
+}
+.btn-square {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+/* CodeMirror Customize */
+.CodeMirror { width: 660px; height: 500px; border: 1px solid #ddd; }
+.CodeMirror-scroll { max-height: 500px; }
+.CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+.banner { background: #ffc; padding: 6px; border-bottom: 2px solid silver;  }
+.banner div { margin: 0 auto; max-width: 600px; text-align: center; }
+
+/* Grid Layout */
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+  position: relative;
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 680px 680px 680px;
+  grid-template-areas:
+        "header  header"
+        "sidebar content"
+        "footer  footer";
+  background-color: #fff;
+ color: #444;
+}
+.box {
+  /* background-color: #444; */
+  color: #000;
+  border-radius: 5px;
+  padding: 0px;
+  font-size: 100%;
+}
+
+.header,
+.footer {
+  /* background-color: #999; */
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

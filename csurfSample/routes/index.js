@@ -6,7 +6,11 @@ const axios = require('axios');
 var csrf = require('csrf');
 var tokens = new csrf();
 
-const titleName = 'Xrain ver 0.1.0'
+// TODO: Move to config file
+const titleName = 'Xrain Translator'
+const subTitleName = 'Translate one language to other language.'
+const footerString = 'Copyleft © 2020-2020 MIT License'
+
 /* Common function*/
 function initToken() {
   return number * number;
@@ -22,7 +26,7 @@ router.get('/', function(req, res) {
     console.log(token);
     //res.render('index', { title: 'Express',reqCsrf:req.csrfToken()});
 
-    res.render('index', { title: titleName,
+    res.render('index', { title: titleName, subTitle: subTitleName,footer:footerString,
         reqCsrf:token,
         hl_summary:'',
         ml_source_code:''});
@@ -48,12 +52,10 @@ router.post('/',function(req,res){
     }
     /*
     if (token != ui_token)
-    {
-        throw new Error('Invalid Token-2');
-    }
+    {throw new Error('Invalid Token-2');}
     */
 
-    // TODO: Call Python REST API
+    // TODO: Move params to config fiel
     var hl_summary = req.body.hl_summary;
     var ml_source_code = req.body.ml_source_code;
     console.log('Print post function: hl_summary/ml_source_code');
@@ -81,7 +83,7 @@ router.post('/',function(req,res){
          //トークンをSessionに保存する
         req.session.csrfToken = token;
         res.render('index', {
-            title: titleName,
+            title: titleName,subTitle: subTitleName,footer:footerString,
             reqCsrf:token,
             hl_summary: hl_summary,
             ml_source_code: response.data.code});
@@ -103,30 +105,15 @@ router.post('/',function(req,res){
          //トークンをSessionに保存する
         req.session.csrfToken = token;
         res.render('index', {
-            title: titleName,
+            title: titleName,subTitle: subTitleName,footer:footerString,
             reqCsrf:token,
             hl_summary: hl_summary,
             ml_source_code: ''});
     });
 
-    /*
-    //使用済みの秘密文字を削除する
-    //delete req.session.csrfSecret;
-    //使用済みのトークンを削除する
-    delete req.session.csrfToken;
-
-    //新しいTokenを発行する
-    var token = req.csrfToken()
-     //トークンをSessionに保存する
-    req.session.csrfToken = token;
-    res.render('index', {
-        title: titleName,
-        reqCsrf:token,
-        hl_summary: hl_summary,
-        ml_source_code: ''});
-    */
 });
 
+/*
 router.post('/registXhr',function(req,res){
     if(req.xhr){
         res.send('xhr Access');
@@ -134,4 +121,5 @@ router.post('/registXhr',function(req,res){
         res.send('not xhr Access');
     }
 });
+*/
 module.exports = router

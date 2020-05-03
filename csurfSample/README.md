@@ -26,6 +26,9 @@ sh az-startApp.sh
 ## TODO
  - [ ] https://highlightjs.org
  - [ ] https://github.com/AaronZhangL/httpie
+ - [ ] Less than 5000 characters
+ - [ ] Drop down list(Human language/Machine Language)
+ - [ ] Lazy Mode Loading
 
 ##### Reference
 (1) Node.js+ExpressでCSRF対策  
