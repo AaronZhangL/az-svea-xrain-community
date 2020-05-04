@@ -63,3 +63,8 @@ typings/
 
 # next.js build output
 .next
+
+# Xrain
+.DS_Store
+csurfSample/.DS_Store
+
