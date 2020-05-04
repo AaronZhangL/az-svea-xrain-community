@@ -24,11 +24,12 @@ sh az-startRedisDocker.sh
 sh az-startApp.sh
 ```
 ## TODO
- - [ ] https://highlightjs.org
+ - [x] https://highlightjs.org (X)
  - [ ] https://github.com/AaronZhangL/httpie
  - [ ] Less than 5000 characters
- - [ ] Drop down list(Human language/Machine Language)
+ - [x] Drop down list(Human language/Machine Language)
  - [ ] Lazy Mode Loading
+ - [ ] https://semantic-ui.com/modules/dropdown.html#/examples
 
 ##### Reference
 (1) Node.js+ExpressでCSRF対策   
