@@ -40,3 +40,5 @@ https://github.com/request/request/issues/3143
 https://github.com/axios/axios  
 (4) CSS Grid Layout Example
 https://gridbyexample.com/examples/
+(5) semantic-ui (fomantic-ui)
+https://semantic-ui.com/modules/dropdown.html#/examples
