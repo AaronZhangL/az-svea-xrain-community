@@ -46,12 +46,11 @@
 			<div class="row">
 				<div class="column">
 					<div class="ui segment">
+                        <!--
 						<input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
 						<input type="submit" value="Translate" class="btn-square">
+                    -->
 					</div>
-				</div>
-				<div class="column">
-					<div class="ui segment"></div>
 				</div>
 				<div class="column">
 					<div class="ui segment">
@@ -223,6 +222,16 @@
 
 					</div>
 				</div>
+                <div class="column">
+					<div class="ui segment">
+                        <div class="ui fluid primary animated button" tabindex="0">
+                          <div class="hidden content"> >>> Translate >>> </div>
+                          <div class="visible content">
+                            <i class="right arrow icon"></i>
+                          </div>
+                        </div>
+                    </div>
+				</div>
 				<div class="column">
 					<div class="ui segment">
 						<!-- machine language -->
@@ -363,9 +372,6 @@
 							});
 						</script>
 					</div>
-				</div>
-				<div class="column">
-					<div class="ui segment"></div>
 				</div>
 				<div class="column">
 					<div class="ui segment"></div>
