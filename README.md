@@ -12,3 +12,6 @@ pyenv virtualenv x.x.x your-env-name
 ```
 miniconda3-4.3.30/envs/xrain-comm
 ```
+
+## TODO
+- [ ] https://github.com/log4js-node/log4js-node/issues/139

@@ -1,36 +1,15 @@
 var express = require('express');
+var ipfilter = require( 'express-ipfilter' ).IpFilter;
+var ips = [ '127.0.0.1', 'localhost', '::1'];
 var path = require('path');
 var favicon = require('static-favicon');
 // setting logger
 //var fs = require('fs');
 //var rfs = require('rotating-file-stream') // version 2.x
-//var morgan = require('morgan');
 
 var path = require('path');
 var log4js = require('log4js');
 var log = log4js.getLogger("app");
-
-
-// create a rotating write stream
-/*
-var accessLogStream = rfs.createStream('xrain_nodejs.log', {
-  interval: '1d', // rotate daily
-  path: path.join(__dirname, 'logs')
-})
-
-const output = rfs.createStream('xrain_nodejs_stdout.log', {
-  interval: '1d', // rotate daily
-  path: path.join(__dirname, 'logs')
-})
-const errorOutput = rfs.createStream('xrain_nodejs_stderr.log', {
-  interval: '1d', // rotate daily
-  path: path.join(__dirname, 'logs')
-})
-*/
-
-// custom simple logger
-//const { Console } = require('console');
-//const logger = module.exports = new Console(output, errorOutput);
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -47,8 +26,6 @@ let redisClient = redis.createClient({
 redisClient.unref()
 redisClient.on('error', console.log)
 
-
-
 var csurf = require('csurf');
 //var csrfProtection = csurf({ cookie: true })
 
@@ -57,10 +34,10 @@ var routes = require('./routes/index');
 
 var app = express();
 
-// setup the logger
-//app.use(morgan('combined', { stream: accessLogStream }));
-//app.use(morgan('dev'));
-app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
+// ip white list
+app.use( ipfilter( ips, { mode: 'allow' } ) );
+// ip black list
+//app.use( ipfilter( ips ) );
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -123,7 +100,7 @@ if (app.get('env') === 'development') {
 }
 
 // production error handler
-// no stacktraces leaked to user
+// no stacktraces leaked to client
 app.use(function(err, req, res, next) {
 	log.error("[xrain debug:app.js] production error=>", err)
 	res.status(err.status || 500);
