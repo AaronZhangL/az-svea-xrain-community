@@ -7,7 +7,7 @@ var csrf = require('csrf');
 var tokens = new csrf();
 
 // TODO: Move to config file
-const titleName = 'Xrain Translator'
+const titleName = 'Xrain Translate'
 const subTitleName = 'Translate one language to other language.'
 const footerString = 'Copyleft © 2020-2020 MIT License'
 

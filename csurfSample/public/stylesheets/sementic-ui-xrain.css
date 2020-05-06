@@ -1,0 +1,24 @@
+.ui.grid>.row {
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	padding-right: 0rem;
+	padding-left: 1rem;
+}
+.ui.grid > .row > .column {
+	padding-left: 1rem;
+	padding-right: 0rem;
+}
+.ui.segment {
+ position:relative;
+ background:#fff;
+ -webkit-box-shadow:0 0 0 0 rgba(34,36,38,.15);
+ /*! box-shadow:0 1px 2px 0 rgba(34,36,38,.15); */
+ margin:1rem 0;
+ padding: 0.2em 0em;
+ /*! border-radius:.28571429rem; */
+ border:0px;
+}
+
+h1 {
+ color: rgba(176, 176, 176, 0.87);
+}

@@ -1,392 +1,421 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title><%= title %></title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <script src="semantic/dist/components/dropdown.min.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<title><%= title %></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
+	<!--
+	<script src="semantic/dist/components/dropdown.min.js"></script>
     <link rel="stylesheet" type="text/css" href="semantic/dist/components/dropdown.min.css">
+-->
 
-    <script src="/javascripts/xhrAccess.js"></script>
-    <link rel=stylesheet href="CodeMirror/lib/codemirror.css">
-    <script src="/CodeMirror/lib/codemirror.js"></script>
-    <script src="/CodeMirror/mode/xml/xml.js"></script>
-    <script src="/CodeMirror/mode/javascript/javascript.js"></script>
-    <script src="/CodeMirror/mode/python/python.js"></script>
-    <script src="/CodeMirror/mode/css/css.js"></script>
-    <script src="/CodeMirror/mode/htmlmixed/htmlmixed.js"></script>
-    <script src="/CodeMirror/addon/edit/matchbrackets.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="/javascripts/xhrAccess.js"></script>
+	<link rel=stylesheet href="CodeMirror/lib/codemirror.css">
+	<script src="/CodeMirror/lib/codemirror.js"></script>
+	<script src="/CodeMirror/mode/xml/xml.js"></script>
+	<script src="/CodeMirror/mode/javascript/javascript.js"></script>
+	<script src="/CodeMirror/mode/python/python.js"></script>
+	<script src="/CodeMirror/mode/css/css.js"></script>
+	<script src="/CodeMirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="/CodeMirror/addon/edit/matchbrackets.js"></script>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/sementic-ui-xrain.css' />
 
+</head>
 
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p><%= subTitle %></p>
-    <!--
-    <form action="/regist" method="post">
-        <input type="submit" value="送信(Token無)">
-    </form>
-    -->
+<body>
+	<h1><%= title %></h1>
+	<form action="/" method="post">
+		<div class="ui equal width grid">
+			<!--Row 0 Header-->
+			<div class="row">
+				<div class="column">
+					<div class="ui segment">
+						<p><%= subTitle %></p>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment"></div>
+				</div>
+			</div>
+			<!--Row 1-->
+			<div class="row">
+				<div class="column">
+					<div class="ui segment">
+						<input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
+						<input type="submit" value="Translate" class="btn-square">
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment"></div>
+				</div>
+				<div class="column">
+					<div class="ui segment">
+						<!-- example of dropdown list -->
+						<div class="ui fluid search selection dropdown">
+							<input type="hidden" name="select_hl">
+							<div class="default text">Select Human Language</div>
+							<i class="dropdown icon"></i>
+							<div class="menu">
+								<div class="item" data-value="ach">Acoli</div>
+								<div class="item" data-value="af"><i class="af flag"></i>Afrikaans </div>
+								<div class="item" data-value="ak">Akan </div>
+								<div class="item" data-value="am"><i class="am flag"></i>አማርኛ </div>
+								<div class="item" data-value="ar"><i class="ar flag"></i>العربية</div>
+								<div class="item" data-value="az"><i class="az flag"></i>azərbaycan</div>
+								<div class="item" data-value="ban">Balinese</div>
+								<div class="item" data-value="be"><i class="be flag"></i>беларуская</div>
+								<div class="item" data-value="bem">Ichibemba </div>
+								<div class="item" data-value="bg"><i class="bg flag"></i>български </div>
+								<div class="item" data-value="bn"><i class="bn flag"></i>বাংলা</div>
+								<div class="item" data-value="br"><i class="br flag"></i>brezhoneg </div>
+								<div class="item" data-value="bs"><i class="bs flag"></i>bosanski</div>
+								<div class="item" data-value="ca"><i class="ca flag"></i>català </div>
+								<div class="item" data-value="ceb">Cebuano</div>
+								<div class="item" data-value="chr">ᏣᎳᎩ' </div>
+								<div class="item" data-value="ckb">کوردیی ناوەندی </div>
+								<div class="item" data-value="co"><i class="co flag"></i>Corsican</div>
+								<div class="item" data-value="crs">Seychellois Creole</div>
+								<div class="item" data-value="cs"><i class="cs flag"></i>čeština</div>
+								<div class="item" data-value="cy"><i class="cy flag"></i>Cymraeg</div>
+								<div class="item" data-value="da">dansk</div>
+								<div class="item" data-value="de"><i class="de flag"></i>Deutsch</div>
+								<div class="item" data-value="ee"><i class="ee flag"></i>Eʋegbe </div>
+								<div class="item" data-value="el">Ελληνικά</div>
+								<div class="item" data-value="en">English</div>
+								<div class="item" data-value="eo">esperanto </div>
+								<div class="item" data-value="es"><i class="es flag"></i>español</div>
+								<div class="item" data-value="es-419">español (Latinoamérica)</div>
+								<div class="item" data-value="et"><i class="et flag"></i>eesti</div>
+								<div class="item" data-value="eu"><i class="eu flag"></i>euskara</div>
+								<div class="item" data-value="fa">فارسی</div>
+								<div class="item" data-value="fi"><i class="fi flag"></i>suomi</div>
+								<div class="item" data-value="fo"><i class="fo flag"></i>føroyskt</div>
+								<div class="item" data-value="fr"><i class="fr flag"></i>français</div>
+								<div class="item" data-value="fy">West-Frysk</div>
+								<div class="item" data-value="ga"><i class="ga flag"></i>Gaeilge</div>
+								<div class="item" data-value="gaa">Ga</div>
+								<div class="item" data-value="gd"><i class="gd flag"></i>Gàidhlig</div>
+								<div class="item" data-value="gl"><i class="gl flag"></i>galego </div>
+								<div class="item" data-value="gn"><i class="gn flag"></i>Guarani</div>
+								<div class="item" data-value="gu"><i class="gu flag"></i>ગુજરાતી</div>
+								<div class="item" data-value="ha">Hausa</div>
+								<div class="item" data-value="haw">ʻŌlelo Hawaiʻi </div>
+								<div class="item" data-value="hi">हिन्दी </div>
+								<div class="item" data-value="hr"><i class="hr flag"></i>hrvatski</div>
+								<div class="item" data-value="ht"><i class="ht flag"></i>Haitian Creole </div>
+								<div class="item" data-value="hu"><i class="hu flag"></i>magyar </div>
+								<div class="item" data-value="hy">հայերեն</div>
+								<div class="item" data-value="ia">Interlingua </div>
+								<div class="item" data-value="id"><i class="id flag"></i>Indonesia </div>
+								<div class="item" data-value="ig">Igbo </div>
+								<div class="item" data-value="is"><i class="is flag"></i>íslenska</div>
+								<div class="item" data-value="it"><i class="it flag"></i>italiano</div>
+								<div class="item" data-value="iw">עברית</div>
+								<div class="item" data-value="ja"><i class="jp flag"></i>日本語</div>
+								<div class="item" data-value="jw">Javanese</div>
+								<div class="item" data-value="ka">ქართული</div>
+								<div class="item" data-value="kg"><i class="kg flag"></i>Kongo</div>
+								<div class="item" data-value="kk">қазақ тілі</div>
+								<div class="item" data-value="km"><i class="km flag"></i>ខ្មែរ</div>
+								<div class="item" data-value="kn"><i class="kn flag"></i>ಕನ್ನಡ</div>
+								<div class="item" data-value="ko">한국어</div>
+								<div class="item" data-value="kri">Krio (Sierra Leone) </div>
+								<div class="item" data-value="ky"><i class="ky flag"></i>кыргызча</div>
+								<div class="item" data-value="la"><i class="la flag"></i>Latin</div>
+								<div class="item" data-value="lg">Luganda</div>
+								<div class="item" data-value="ln">lingála</div>
+								<div class="item" data-value="lo">ລາວ</div>
+								<div class="item" data-value="loz">Lozi </div>
+								<div class="item" data-value="lt"><i class="lt flag"></i>lietuvių</div>
+								<div class="item" data-value="lua">Luba-Lulua</div>
+								<div class="item" data-value="lv"><i class="lv flag"></i>latviešu</div>
+								<div class="item" data-value="mfe">kreol morisien </div>
+								<div class="item" data-value="mg"><i class="mg flag"></i>Malagasy</div>
+								<div class="item" data-value="mi">Maori</div>
+								<div class="item" data-value="mk"><i class="mk flag"></i>македонски</div>
+								<div class="item" data-value="ml"><i class="ml flag"></i>മലയാളം </div>
+								<div class="item" data-value="mn"><i class="mn flag"></i>монгол </div>
+								<div class="item" data-value="mo"><i class="mo flag"></i>română (Republica Moldova) </div>
+								<div class="item" data-value="mr"><i class="mr flag"></i>मराठी</div>
+								<div class="item" data-value="ms"><i class="ms flag"></i>Bahasa Melayu</div>
+								<div class="item" data-value="mt"><i class="mt flag"></i>Malti</div>
+								<div class="item" data-value="my"><i class="my flag"></i>မြန်မာ </div>
+								<div class="item" data-value="ne"><i class="ne flag"></i>नेपाली </div>
+								<div class="item" data-value="nl"><i class="nl flag"></i>Nederlands</div>
+								<div class="item" data-value="nn">nynorsk</div>
+								<div class="item" data-value="no"><i class="no flag"></i>norsk</div>
+								<div class="item" data-value="nso">Northern Sotho </div>
+								<div class="item" data-value="ny">Nyanja </div>
+								<div class="item" data-value="nyn">Runyankore</div>
+								<div class="item" data-value="oc">Occitan</div>
+								<div class="item" data-value="om"><i class="om flag"></i>Oromoo </div>
+								<div class="item" data-value="or">ଓଡ଼ିଆ</div>
+								<div class="item" data-value="pa"><i class="pa flag"></i>ਪੰਜਾਬੀ </div>
+								<div class="item" data-value="pcm">Nigerian Pidgin</div>
+								<div class="item" data-value="pl"><i class="pl flag"></i>polski </div>
+								<div class="item" data-value="ps"><i class="ps flag"></i>پښتو </div>
+								<div class="item" data-value="pt"><i class="pt flag"></i>português </div>
+								<div class="item" data-value="pt-BR">português (Brasil)</div>
+								<div class="item" data-value="pt-PT">português (Portugal)</div>
+								<div class="item" data-value="qu">Runasimi</div>
+								<div class="item" data-value="rm">rumantsch </div>
+								<div class="item" data-value="rn">Ikirundi</div>
+								<div class="item" data-value="ro"><i class="ro flag"></i>română </div>
+								<div class="item" data-value="ru"><i class="ru flag"></i>русский</div>
+								<div class="item" data-value="rw"><i class="rw flag"></i>Kinyarwanda </div>
+								<div class="item" data-value="sd"><i class="sd flag"></i>Sindhi </div>
+								<div class="item" data-value="si"><i class="si flag"></i>සිංහල</div>
+								<div class="item" data-value="sk"><i class="sk flag"></i>slovenčina</div>
+								<div class="item" data-value="sl"><i class="sl flag"></i>slovenščina </div>
+								<div class="item" data-value="sn"><i class="sn flag"></i>chiShona</div>
+								<div class="item" data-value="so"><i class="so flag"></i>Soomaali</div>
+								<div class="item" data-value="sq">shqip</div>
+								<div class="item" data-value="sr"><i class="sr flag"></i>српски </div>
+								<div class="item" data-value="sr-Latn">srpski (latinica)</div>
+								<div class="item" data-value="sr-ME">srpski (Crna Gora)</div>
+								<div class="item" data-value="st"><i class="st flag"></i>Southern Sotho </div>
+								<div class="item" data-value="su">Sundanese </div>
+								<div class="item" data-value="sv"><i class="sv flag"></i>svenska</div>
+								<div class="item" data-value="sw">Kiswahili </div>
+								<div class="item" data-value="ta">தமிழ்</div>
+								<div class="item" data-value="te">తెలుగు </div>
+								<div class="item" data-value="tg"><i class="tg flag"></i>Tajik</div>
+								<div class="item" data-value="th"><i class="th flag"></i>ไทย</div>
+								<div class="item" data-value="ti">ትግርኛ </div>
+								<div class="item" data-value="tk"><i class="tk flag"></i>Turkmen</div>
+								<div class="item" data-value="tl"><i class="tl flag"></i>Filipino</div>
+								<div class="item" data-value="tlh">Klingon</div>
+								<div class="item" data-value="tn"><i class="tn flag"></i>Tswana </div>
+								<div class="item" data-value="to"><i class="to flag"></i>lea fakatonga</div>
+								<div class="item" data-value="tr"><i class="tr flag"></i>Türkçe </div>
+								<div class="item" data-value="tt"><i class="tt flag"></i>Tatar</div>
+								<div class="item" data-value="tum">Tumbuka</div>
+								<div class="item" data-value="tw"><i class="tw flag"></i>Twi</div>
+								<div class="item" data-value="ug"><i class="ug flag"></i>ئۇيغۇرچە</div>
+								<div class="item" data-value="uk">українська</div>
+								<div class="item" data-value="ur">اردو </div>
+								<div class="item" data-value="uz"><i class="uz flag"></i>o‘zbek </div>
+								<div class="item" data-value="vi"><i class="vi flag"></i>Tiếng Việt</div>
+								<div class="item" data-value="wo">Wolof</div>
+								<div class="item" data-value="xh">Xhosa</div>
+								<div class="item" data-value="xx-bork">Bork, bork, bork!</div>
+								<div class="item" data-value="xx-elmer">Elmer Fudd</div>
+								<div class="item" data-value="xx-hacker">Hacker </div>
+								<div class="item" data-value="xx-pirate">Pirate </div>
+								<div class="item" data-value="yi">ייִדיש </div>
+								<div class="item" data-value="yo">Èdè Yorùbá</div>
+								<div class="item" data-value="zh-CN"><i class="cn flag"></i>中文 (简体)</div>
+								<div class="item" data-value="zh-TW">中文 (繁體)</div>
+								<div class="item" data-value="zu">isiZulu</div>
+							</div>
+						</div>
+						<script>
+							$(function() {
+								$('.ui.dropdown')
+									.dropdown('set selected', 'en');
+							});
+						</script>
 
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment">
+						<!-- machine language -->
+						<div class="ui fluid search selection dropdown">
+							<input type="hidden" name="select_ml">
+							<div class="default text">Select Machine Language</div>
+							<i class="dropdown icon"></i>
+							<div class="menu">
+								<div class="item" data-value="apl">apl</div>
+								<div class="item" data-value="asciiarmor">asciiarmor</div>
+								<div class="item" data-value="asn.1">asn.1</div>
+								<div class="item" data-value="asterisk">asterisk</div>
+								<div class="item" data-value="brainfuck">brainfuck </div>
+								<div class="item" data-value="clike">clike</div>
+								<div class="item" data-value="clojure">clojure </div>
+								<div class="item" data-value="cmake">cmake</div>
+								<div class="item" data-value="cobol">cobol</div>
+								<div class="item" data-value="coffeescript">coffeescript </div>
+								<div class="item" data-value="commonlisp">commonlisp</div>
+								<div class="item" data-value="crystal">crystal </div>
+								<div class="item" data-value="css">css</div>
+								<div class="item" data-value="cypher">cypher</div>
+								<div class="item" data-value="d">d</div>
+								<div class="item" data-value="dart">dart </div>
+								<div class="item" data-value="diff">diff </div>
+								<div class="item" data-value="django">django</div>
+								<div class="item" data-value="dockerfile">dockerfile</div>
+								<div class="item" data-value="dtd">dtd</div>
+								<div class="item" data-value="dylan">dylan</div>
+								<div class="item" data-value="ebnf">ebnf </div>
+								<div class="item" data-value="ecl">ecl</div>
+								<div class="item" data-value="eiffel">eiffel</div>
+								<div class="item" data-value="elm">elm</div>
+								<div class="item" data-value="erlang">erlang</div>
+								<div class="item" data-value="factor">factor</div>
+								<div class="item" data-value="fcl">fcl</div>
+								<div class="item" data-value="forth">forth</div>
+								<div class="item" data-value="fortran">fortran </div>
+								<div class="item" data-value="gas">gas</div>
+								<div class="item" data-value="gfm">gfm</div>
+								<div class="item" data-value="gherkin">gherkin </div>
+								<div class="item" data-value="go">go </div>
+								<div class="item" data-value="groovy">groovy</div>
+								<div class="item" data-value="haml">haml </div>
+								<div class="item" data-value="handlebars">handlebars</div>
+								<div class="item" data-value="haskell">haskell </div>
+								<div class="item" data-value="haskell-literate">haskell-literate</div>
+								<div class="item" data-value="haxe">haxe </div>
+								<div class="item" data-value="htmlembedded">htmlembedded </div>
+								<div class="item" data-value="htmlmixed">htmlmixed </div>
+								<div class="item" data-value="http">http </div>
+								<div class="item" data-value="idl">idl</div>
+								<div class="item" data-value="javascript">javascript</div>
+								<div class="item" data-value="jinja2">jinja2</div>
+								<div class="item" data-value="jsx">jsx</div>
+								<div class="item" data-value="julia">julia</div>
+								<div class="item" data-value="livescript">livescript</div>
+								<div class="item" data-value="lua">lua</div>
+								<div class="item" data-value="markdown">markdown</div>
+								<div class="item" data-value="mathematica">mathematica</div>
+								<div class="item" data-value="mbox">mbox </div>
+								<div class="item" data-value="mirc">mirc </div>
+								<div class="item" data-value="mllike">mllike</div>
+								<div class="item" data-value="model.txt">model.txt </div>
+								<div class="item" data-value="modelica">modelica</div>
+								<div class="item" data-value="mscgen">mscgen</div>
+								<div class="item" data-value="mumps">mumps</div>
+								<div class="item" data-value="nginx">nginx</div>
+								<div class="item" data-value="nsis">nsis </div>
+								<div class="item" data-value="ntriples">ntriples</div>
+								<div class="item" data-value="octave">octave</div>
+								<div class="item" data-value="oz">oz </div>
+								<div class="item" data-value="pascal">pascal</div>
+								<div class="item" data-value="pegjs">pegjs</div>
+								<div class="item" data-value="perl">perl </div>
+								<div class="item" data-value="php">php</div>
+								<div class="item" data-value="pig">pig</div>
+								<div class="item" data-value="powershell">powershell</div>
+								<div class="item" data-value="properties">properties</div>
+								<div class="item" data-value="protobuf">protobuf</div>
+								<div class="item" data-value="pug">pug</div>
+								<div class="item" data-value="puppet">puppet</div>
+								<div class="item" data-value="python">python</div>
+								<div class="item" data-value="q">q</div>
+								<div class="item" data-value="r">r</div>
+								<div class="item" data-value="rpm">rpm</div>
+								<div class="item" data-value="rst">rst</div>
+								<div class="item" data-value="ruby">ruby </div>
+								<div class="item" data-value="rust">rust </div>
+								<div class="item" data-value="sas">sas</div>
+								<div class="item" data-value="sass">sass </div>
+								<div class="item" data-value="scheme">scheme</div>
+								<div class="item" data-value="shell">shell</div>
+								<div class="item" data-value="sieve">sieve</div>
+								<div class="item" data-value="slim">slim </div>
+								<div class="item" data-value="smalltalk">smalltalk </div>
+								<div class="item" data-value="smarty">smarty</div>
+								<div class="item" data-value="solr">solr </div>
+								<div class="item" data-value="soy">soy</div>
+								<div class="item" data-value="sparql">sparql</div>
+								<div class="item" data-value="spreadsheet">spreadsheet</div>
+								<div class="item" data-value="sql">sql</div>
+								<div class="item" data-value="stex">stex </div>
+								<div class="item" data-value="stylus">stylus</div>
+								<div class="item" data-value="swift">swift</div>
+								<div class="item" data-value="tcl">tcl</div>
+								<div class="item" data-value="textile">textile </div>
+								<div class="item" data-value="tiddlywiki">tiddlywiki</div>
+								<div class="item" data-value="tiki">tiki </div>
+								<div class="item" data-value="toml">toml </div>
+								<div class="item" data-value="tornado">tornado </div>
+								<div class="item" data-value="troff">troff</div>
+								<div class="item" data-value="ttcn">ttcn </div>
+								<div class="item" data-value="ttcn-cfg">ttcn-cfg</div>
+								<div class="item" data-value="turtle">turtle</div>
+								<div class="item" data-value="twig">twig </div>
+								<div class="item" data-value="vb">vb </div>
+								<div class="item" data-value="vbscript">vbscript</div>
+								<div class="item" data-value="velocity">velocity</div>
+								<div class="item" data-value="verilog">verilog </div>
+								<div class="item" data-value="vhdl">vhdl </div>
+								<div class="item" data-value="vue">vue</div>
+								<div class="item" data-value="wast">wast </div>
+								<div class="item" data-value="webidl">webidl</div>
+								<div class="item" data-value="xml">xml</div>
+								<div class="item" data-value="xquery">xquery</div>
+								<div class="item" data-value="yacas">yacas</div>
+								<div class="item" data-value="yaml">yaml </div>
+								<div class="item" data-value="yaml-frontmatter">yaml-frontmatter</div>
+								<div class="item" data-value="z80">z80</div>
+							</div>
+						</div>
+						<script>
+							$(function() {
+								//$('.ui.dropdown').dropdown();
+								$('.ui.dropdown')
+									.dropdown('set selected', 'python');
+							});
+						</script>
+					</div>
+				</div>
+				<div class="column">
+					<div class="ui segment"></div>
+				</div>
+				<div class="column">
+					<div class="ui segment"></div>
+				</div>
+			</div>
+			<!-- Row 2-->
+			<div class="row">
+				<!-- 2-1 -->
+				<div class="column">
+					<div class="ui segment">
+						<textarea id="hl_summary" name="hl_summary" class="textarea-style"><%= hl_summary %></textarea>
+					</div>
+				</div>
+				<!-- 2-2 -->
+				<div class="column">
+					<div class="ui segment">
+						<textarea id="ml_source_code" name="ml_source_code"><%= ml_source_code %></textarea>
+						<script>
+							var editor = CodeMirror.fromTextArea(document.getElementById("ml_source_code"), {
+								mode: {
+									name: "python",
+									version: 3,
+									singleLineStringErrors: false
+								},
+								lineNumbers: true,
+								indentUnit: 4,
+								matchBrackets: true
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<!--Row 3-->
+			<div class="row">
+				<div class="column">
+					<div class="ui segment">
+						<div class="box footer"><%= footer %></div>
+					</div>
+				</div>
+				</dißv>
+			</div>
 
-    <form action="/" method="post">
-
-        <div class="wrapper">
-          <div class="box header">
-              <input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
-              <input type="submit" value="Translate" class="btn-square">
-              <!-- example of dropdown list -->
-
-            <div class="ui fluid search selection dropdown">
-                <input type="hidden" name="select_hl">
-                <div class="default text">Select Human Language</div>
-                <i class="dropdown icon"></i>
-                      <div class="menu">
-                      <div class="item" data-value="ach">Acoli</div>
-                      <div class="item" data-value="af"><i class="af flag"></i>Afrikaans </div>
-                      <div class="item" data-value="ak">Akan </div>
-                      <div class="item" data-value="am"><i class="am flag"></i>አማርኛ </div>
-                      <div class="item" data-value="ar"><i class="ar flag"></i>العربية</div>
-                      <div class="item" data-value="az"><i class="az flag"></i>azərbaycan</div>
-                      <div class="item" data-value="ban">Balinese</div>
-                      <div class="item" data-value="be"><i class="be flag"></i>беларуская</div>
-                      <div class="item" data-value="bem">Ichibemba </div>
-                      <div class="item" data-value="bg"><i class="bg flag"></i>български </div>
-                      <div class="item" data-value="bn"><i class="bn flag"></i>বাংলা</div>
-                      <div class="item" data-value="br"><i class="br flag"></i>brezhoneg </div>
-                      <div class="item" data-value="bs"><i class="bs flag"></i>bosanski</div>
-                      <div class="item" data-value="ca"><i class="ca flag"></i>català </div>
-                      <div class="item" data-value="ceb">Cebuano</div>
-                      <div class="item" data-value="chr">ᏣᎳᎩ' </div>
-                      <div class="item" data-value="ckb">کوردیی ناوەندی </div>
-                      <div class="item" data-value="co"><i class="co flag"></i>Corsican</div>
-                      <div class="item" data-value="crs">Seychellois Creole</div>
-                      <div class="item" data-value="cs"><i class="cs flag"></i>čeština</div>
-                      <div class="item" data-value="cy"><i class="cy flag"></i>Cymraeg</div>
-                      <div class="item" data-value="da">dansk</div>
-                      <div class="item" data-value="de"><i class="de flag"></i>Deutsch</div>
-                      <div class="item" data-value="ee"><i class="ee flag"></i>Eʋegbe </div>
-                      <div class="item" data-value="el">Ελληνικά</div>
-                      <div class="item" data-value="en">English</div>
-                      <div class="item" data-value="eo">esperanto </div>
-                      <div class="item" data-value="es"><i class="es flag"></i>español</div>
-                      <div class="item" data-value="es-419">español (Latinoamérica)</div>
-                      <div class="item" data-value="et"><i class="et flag"></i>eesti</div>
-                      <div class="item" data-value="eu"><i class="eu flag"></i>euskara</div>
-                      <div class="item" data-value="fa">فارسی</div>
-                      <div class="item" data-value="fi"><i class="fi flag"></i>suomi</div>
-                      <div class="item" data-value="fo"><i class="fo flag"></i>føroyskt</div>
-                      <div class="item" data-value="fr"><i class="fr flag"></i>français</div>
-                      <div class="item" data-value="fy">West-Frysk</div>
-                      <div class="item" data-value="ga"><i class="ga flag"></i>Gaeilge</div>
-                      <div class="item" data-value="gaa">Ga</div>
-                      <div class="item" data-value="gd"><i class="gd flag"></i>Gàidhlig</div>
-                      <div class="item" data-value="gl"><i class="gl flag"></i>galego </div>
-                      <div class="item" data-value="gn"><i class="gn flag"></i>Guarani</div>
-                      <div class="item" data-value="gu"><i class="gu flag"></i>ગુજરાતી</div>
-                      <div class="item" data-value="ha">Hausa</div>
-                      <div class="item" data-value="haw">ʻŌlelo Hawaiʻi </div>
-                      <div class="item" data-value="hi">हिन्दी </div>
-                      <div class="item" data-value="hr"><i class="hr flag"></i>hrvatski</div>
-                      <div class="item" data-value="ht"><i class="ht flag"></i>Haitian Creole </div>
-                      <div class="item" data-value="hu"><i class="hu flag"></i>magyar </div>
-                      <div class="item" data-value="hy">հայերեն</div>
-                      <div class="item" data-value="ia">Interlingua </div>
-                      <div class="item" data-value="id"><i class="id flag"></i>Indonesia </div>
-                      <div class="item" data-value="ig">Igbo </div>
-                      <div class="item" data-value="is"><i class="is flag"></i>íslenska</div>
-                      <div class="item" data-value="it"><i class="it flag"></i>italiano</div>
-                      <div class="item" data-value="iw">עברית</div>
-                      <div class="item" data-value="ja"><i class="jp flag"></i>日本語</div>
-                      <div class="item" data-value="jw">Javanese</div>
-                      <div class="item" data-value="ka">ქართული</div>
-                      <div class="item" data-value="kg"><i class="kg flag"></i>Kongo</div>
-                      <div class="item" data-value="kk">қазақ тілі</div>
-                      <div class="item" data-value="km"><i class="km flag"></i>ខ្មែរ</div>
-                      <div class="item" data-value="kn"><i class="kn flag"></i>ಕನ್ನಡ</div>
-                      <div class="item" data-value="ko">한국어</div>
-                      <div class="item" data-value="kri">Krio (Sierra Leone) </div>
-                      <div class="item" data-value="ky"><i class="ky flag"></i>кыргызча</div>
-                      <div class="item" data-value="la"><i class="la flag"></i>Latin</div>
-                      <div class="item" data-value="lg">Luganda</div>
-                      <div class="item" data-value="ln">lingála</div>
-                      <div class="item" data-value="lo">ລາວ</div>
-                      <div class="item" data-value="loz">Lozi </div>
-                      <div class="item" data-value="lt"><i class="lt flag"></i>lietuvių</div>
-                      <div class="item" data-value="lua">Luba-Lulua</div>
-                      <div class="item" data-value="lv"><i class="lv flag"></i>latviešu</div>
-                      <div class="item" data-value="mfe">kreol morisien </div>
-                      <div class="item" data-value="mg"><i class="mg flag"></i>Malagasy</div>
-                      <div class="item" data-value="mi">Maori</div>
-                      <div class="item" data-value="mk"><i class="mk flag"></i>македонски</div>
-                      <div class="item" data-value="ml"><i class="ml flag"></i>മലയാളം </div>
-                      <div class="item" data-value="mn"><i class="mn flag"></i>монгол </div>
-                      <div class="item" data-value="mo"><i class="mo flag"></i>română (Republica Moldova) </div>
-                      <div class="item" data-value="mr"><i class="mr flag"></i>मराठी</div>
-                      <div class="item" data-value="ms"><i class="ms flag"></i>Bahasa Melayu</div>
-                      <div class="item" data-value="mt"><i class="mt flag"></i>Malti</div>
-                      <div class="item" data-value="my"><i class="my flag"></i>မြန်မာ </div>
-                      <div class="item" data-value="ne"><i class="ne flag"></i>नेपाली </div>
-                      <div class="item" data-value="nl"><i class="nl flag"></i>Nederlands</div>
-                      <div class="item" data-value="nn">nynorsk</div>
-                      <div class="item" data-value="no"><i class="no flag"></i>norsk</div>
-                      <div class="item" data-value="nso">Northern Sotho </div>
-                      <div class="item" data-value="ny">Nyanja </div>
-                      <div class="item" data-value="nyn">Runyankore</div>
-                      <div class="item" data-value="oc">Occitan</div>
-                      <div class="item" data-value="om"><i class="om flag"></i>Oromoo </div>
-                      <div class="item" data-value="or">ଓଡ଼ିଆ</div>
-                      <div class="item" data-value="pa"><i class="pa flag"></i>ਪੰਜਾਬੀ </div>
-                      <div class="item" data-value="pcm">Nigerian Pidgin</div>
-                      <div class="item" data-value="pl"><i class="pl flag"></i>polski </div>
-                      <div class="item" data-value="ps"><i class="ps flag"></i>پښتو </div>
-                      <div class="item" data-value="pt"><i class="pt flag"></i>português </div>
-                      <div class="item" data-value="pt-BR">português (Brasil)</div>
-                      <div class="item" data-value="pt-PT">português (Portugal)</div>
-                      <div class="item" data-value="qu">Runasimi</div>
-                      <div class="item" data-value="rm">rumantsch </div>
-                      <div class="item" data-value="rn">Ikirundi</div>
-                      <div class="item" data-value="ro"><i class="ro flag"></i>română </div>
-                      <div class="item" data-value="ru"><i class="ru flag"></i>русский</div>
-                      <div class="item" data-value="rw"><i class="rw flag"></i>Kinyarwanda </div>
-                      <div class="item" data-value="sd"><i class="sd flag"></i>Sindhi </div>
-                      <div class="item" data-value="si"><i class="si flag"></i>සිංහල</div>
-                      <div class="item" data-value="sk"><i class="sk flag"></i>slovenčina</div>
-                      <div class="item" data-value="sl"><i class="sl flag"></i>slovenščina </div>
-                      <div class="item" data-value="sn"><i class="sn flag"></i>chiShona</div>
-                      <div class="item" data-value="so"><i class="so flag"></i>Soomaali</div>
-                      <div class="item" data-value="sq">shqip</div>
-                      <div class="item" data-value="sr"><i class="sr flag"></i>српски </div>
-                      <div class="item" data-value="sr-Latn">srpski (latinica)</div>
-                      <div class="item" data-value="sr-ME">srpski (Crna Gora)</div>
-                      <div class="item" data-value="st"><i class="st flag"></i>Southern Sotho </div>
-                      <div class="item" data-value="su">Sundanese </div>
-                      <div class="item" data-value="sv"><i class="sv flag"></i>svenska</div>
-                      <div class="item" data-value="sw">Kiswahili </div>
-                      <div class="item" data-value="ta">தமிழ்</div>
-                      <div class="item" data-value="te">తెలుగు </div>
-                      <div class="item" data-value="tg"><i class="tg flag"></i>Tajik</div>
-                      <div class="item" data-value="th"><i class="th flag"></i>ไทย</div>
-                      <div class="item" data-value="ti">ትግርኛ </div>
-                      <div class="item" data-value="tk"><i class="tk flag"></i>Turkmen</div>
-                      <div class="item" data-value="tl"><i class="tl flag"></i>Filipino</div>
-                      <div class="item" data-value="tlh">Klingon</div>
-                      <div class="item" data-value="tn"><i class="tn flag"></i>Tswana </div>
-                      <div class="item" data-value="to"><i class="to flag"></i>lea fakatonga</div>
-                      <div class="item" data-value="tr"><i class="tr flag"></i>Türkçe </div>
-                      <div class="item" data-value="tt"><i class="tt flag"></i>Tatar</div>
-                      <div class="item" data-value="tum">Tumbuka</div>
-                      <div class="item" data-value="tw"><i class="tw flag"></i>Twi</div>
-                      <div class="item" data-value="ug"><i class="ug flag"></i>ئۇيغۇرچە</div>
-                      <div class="item" data-value="uk">українська</div>
-                      <div class="item" data-value="ur">اردو </div>
-                      <div class="item" data-value="uz"><i class="uz flag"></i>o‘zbek </div>
-                      <div class="item" data-value="vi"><i class="vi flag"></i>Tiếng Việt</div>
-                      <div class="item" data-value="wo">Wolof</div>
-                      <div class="item" data-value="xh">Xhosa</div>
-                      <div class="item" data-value="xx-bork">Bork, bork, bork!</div>
-                      <div class="item" data-value="xx-elmer">Elmer Fudd</div>
-                      <div class="item" data-value="xx-hacker">Hacker </div>
-                      <div class="item" data-value="xx-pirate">Pirate </div>
-                      <div class="item" data-value="yi">ייִדיש </div>
-                      <div class="item" data-value="yo">Èdè Yorùbá</div>
-                      <div class="item" data-value="zh-CN"><i class="cn flag"></i>中文 (简体)</div>
-                      <div class="item" data-value="zh-TW">中文 (繁體)</div>
-                      <div class="item" data-value="zu">isiZulu</div>
-                </div>
-             </div>
-             <script>
-             $(function() {
-                 $('.ui.dropdown')
-                     .dropdown('set selected', 'en')
-                   ;
-             });
-             </script>
-             
-     <!-- machine language -->
-         <div class="ui fluid search selection dropdown">
-          <input type="hidden" name="select_ml">
-          <div class="default text">Select Machine Language</div>
-             <i class="dropdown icon"></i>
-             <div class="menu">
-             <div class="item" data-value="apl">apl</div>
-             <div class="item" data-value="asciiarmor">asciiarmor</div>
-             <div class="item" data-value="asn.1">asn.1</div>
-             <div class="item" data-value="asterisk">asterisk</div>
-             <div class="item" data-value="brainfuck">brainfuck </div>
-             <div class="item" data-value="clike">clike</div>
-             <div class="item" data-value="clojure">clojure </div>
-             <div class="item" data-value="cmake">cmake</div>
-             <div class="item" data-value="cobol">cobol</div>
-             <div class="item" data-value="coffeescript">coffeescript </div>
-             <div class="item" data-value="commonlisp">commonlisp</div>
-             <div class="item" data-value="crystal">crystal </div>
-             <div class="item" data-value="css">css</div>
-             <div class="item" data-value="cypher">cypher</div>
-             <div class="item" data-value="d">d</div>
-             <div class="item" data-value="dart">dart </div>
-             <div class="item" data-value="diff">diff </div>
-             <div class="item" data-value="django">django</div>
-             <div class="item" data-value="dockerfile">dockerfile</div>
-             <div class="item" data-value="dtd">dtd</div>
-             <div class="item" data-value="dylan">dylan</div>
-             <div class="item" data-value="ebnf">ebnf </div>
-             <div class="item" data-value="ecl">ecl</div>
-             <div class="item" data-value="eiffel">eiffel</div>
-             <div class="item" data-value="elm">elm</div>
-             <div class="item" data-value="erlang">erlang</div>
-             <div class="item" data-value="factor">factor</div>
-             <div class="item" data-value="fcl">fcl</div>
-             <div class="item" data-value="forth">forth</div>
-             <div class="item" data-value="fortran">fortran </div>
-             <div class="item" data-value="gas">gas</div>
-             <div class="item" data-value="gfm">gfm</div>
-             <div class="item" data-value="gherkin">gherkin </div>
-             <div class="item" data-value="go">go </div>
-             <div class="item" data-value="groovy">groovy</div>
-             <div class="item" data-value="haml">haml </div>
-             <div class="item" data-value="handlebars">handlebars</div>
-             <div class="item" data-value="haskell">haskell </div>
-             <div class="item" data-value="haskell-literate">haskell-literate</div>
-             <div class="item" data-value="haxe">haxe </div>
-             <div class="item" data-value="htmlembedded">htmlembedded </div>
-             <div class="item" data-value="htmlmixed">htmlmixed </div>
-             <div class="item" data-value="http">http </div>
-             <div class="item" data-value="idl">idl</div>
-             <div class="item" data-value="javascript">javascript</div>
-             <div class="item" data-value="jinja2">jinja2</div>
-             <div class="item" data-value="jsx">jsx</div>
-             <div class="item" data-value="julia">julia</div>
-             <div class="item" data-value="livescript">livescript</div>
-             <div class="item" data-value="lua">lua</div>
-             <div class="item" data-value="markdown">markdown</div>
-             <div class="item" data-value="mathematica">mathematica</div>
-             <div class="item" data-value="mbox">mbox </div>
-             <div class="item" data-value="mirc">mirc </div>
-             <div class="item" data-value="mllike">mllike</div>
-             <div class="item" data-value="model.txt">model.txt </div>
-             <div class="item" data-value="modelica">modelica</div>
-             <div class="item" data-value="mscgen">mscgen</div>
-             <div class="item" data-value="mumps">mumps</div>
-             <div class="item" data-value="nginx">nginx</div>
-             <div class="item" data-value="nsis">nsis </div>
-             <div class="item" data-value="ntriples">ntriples</div>
-             <div class="item" data-value="octave">octave</div>
-             <div class="item" data-value="oz">oz </div>
-             <div class="item" data-value="pascal">pascal</div>
-             <div class="item" data-value="pegjs">pegjs</div>
-             <div class="item" data-value="perl">perl </div>
-             <div class="item" data-value="php">php</div>
-             <div class="item" data-value="pig">pig</div>
-             <div class="item" data-value="powershell">powershell</div>
-             <div class="item" data-value="properties">properties</div>
-             <div class="item" data-value="protobuf">protobuf</div>
-             <div class="item" data-value="pug">pug</div>
-             <div class="item" data-value="puppet">puppet</div>
-             <div class="item" data-value="python">python</div>
-             <div class="item" data-value="q">q</div>
-             <div class="item" data-value="r">r</div>
-             <div class="item" data-value="rpm">rpm</div>
-             <div class="item" data-value="rst">rst</div>
-             <div class="item" data-value="ruby">ruby </div>
-             <div class="item" data-value="rust">rust </div>
-             <div class="item" data-value="sas">sas</div>
-             <div class="item" data-value="sass">sass </div>
-             <div class="item" data-value="scheme">scheme</div>
-             <div class="item" data-value="shell">shell</div>
-             <div class="item" data-value="sieve">sieve</div>
-             <div class="item" data-value="slim">slim </div>
-             <div class="item" data-value="smalltalk">smalltalk </div>
-             <div class="item" data-value="smarty">smarty</div>
-             <div class="item" data-value="solr">solr </div>
-             <div class="item" data-value="soy">soy</div>
-             <div class="item" data-value="sparql">sparql</div>
-             <div class="item" data-value="spreadsheet">spreadsheet</div>
-             <div class="item" data-value="sql">sql</div>
-             <div class="item" data-value="stex">stex </div>
-             <div class="item" data-value="stylus">stylus</div>
-             <div class="item" data-value="swift">swift</div>
-             <div class="item" data-value="tcl">tcl</div>
-             <div class="item" data-value="textile">textile </div>
-             <div class="item" data-value="tiddlywiki">tiddlywiki</div>
-             <div class="item" data-value="tiki">tiki </div>
-             <div class="item" data-value="toml">toml </div>
-             <div class="item" data-value="tornado">tornado </div>
-             <div class="item" data-value="troff">troff</div>
-             <div class="item" data-value="ttcn">ttcn </div>
-             <div class="item" data-value="ttcn-cfg">ttcn-cfg</div>
-             <div class="item" data-value="turtle">turtle</div>
-             <div class="item" data-value="twig">twig </div>
-             <div class="item" data-value="vb">vb </div>
-             <div class="item" data-value="vbscript">vbscript</div>
-             <div class="item" data-value="velocity">velocity</div>
-             <div class="item" data-value="verilog">verilog </div>
-             <div class="item" data-value="vhdl">vhdl </div>
-             <div class="item" data-value="vue">vue</div>
-             <div class="item" data-value="wast">wast </div>
-             <div class="item" data-value="webidl">webidl</div>
-             <div class="item" data-value="xml">xml</div>
-             <div class="item" data-value="xquery">xquery</div>
-             <div class="item" data-value="yacas">yacas</div>
-             <div class="item" data-value="yaml">yaml </div>
-             <div class="item" data-value="yaml-frontmatter">yaml-frontmatter</div>
-             <div class="item" data-value="z80">z80</div>
-          </div>
-         </div>
-              <script>
-              $(function() {
-                  //$('.ui.dropdown').dropdown();
-                  $('.ui.dropdown')
-                      .dropdown('set selected', 'python')
-                    ;
-              });
-              </script>
-
-          </div>
-          <div class="box sidebar">
-              <div class="inline-block">
-                  <textarea id="hl_summary" name="hl_summary" class="textarea-style"><%= hl_summary %></textarea>
-              </div>
-          </div>
-          <div class="box content">
-              <!--
-              <textarea id="ml_source_code" name="ml_source_code" style="margin: 0px; width: 600px; height: 225px;"><%= ml_source_code %></textarea>
-              -->
-              <div class="inline-block">
-                  <textarea id="ml_source_code" name="ml_source_code"><%= ml_source_code %></textarea>
-                  <script>
-                    var editor = CodeMirror.fromTextArea(document.getElementById("ml_source_code"), {
-                      mode: {name: "python",
-                             version: 3,
-                             singleLineStringErrors: false},
-                      lineNumbers: true,
-                      indentUnit: 4,
-                      matchBrackets: true
-                  });
-                  </script>
-              </div>
-          </div>
-          <div class="box footer"><%= footer %></div>
-        </div>
-
-
-    </form>
-    <!--
+	</form>
+	<!--
     <form action="/registXhr" method="post">
         <input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
-        <input type="submit" value="送信(Token有 Xhr無)">
+        <input typeß="submit" value="送信(Token有 Xhr無)">
     </form>
     <input id="xhrSubmit" type="submit" value="Ajax送信(Token有)">
     -->
+</body>
 
-
-  </body>
 </html>
