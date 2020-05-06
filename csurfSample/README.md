@@ -44,9 +44,10 @@ $ sh az-startPro.sh
  - [ ] https://github.com/log4js-node/log4js-node/issues/139
  - [ ] Add null check about hl_summary
  - [ ] Add alert message if there isn't result about ml_source_code
- - [ ] Add csrf python certification
+ - [ ] Add csrf python certification and change API IF
  - [x] Add nodejs config file (2020-05-07)
  - [x] Add log to file logic. (2020-05-07)
+
 
 ##### Reference
 (1) Node.js+ExpressでCSRF対策   
