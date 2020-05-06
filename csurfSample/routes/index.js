@@ -8,7 +8,7 @@ var tokens = new csrf();
 
 // TODO: Move to config file
 const titleName = 'Xrain Translate'
-const subTitleName = 'Translate one language to other language.'
+const subTitleName = ''
 const footerString = 'Copyleft © 2020-2020 MIT License'
 
 /* Common function*/
