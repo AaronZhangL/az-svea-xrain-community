@@ -26,3 +26,4 @@ node_modules
 # svea-Xrain
 data/redis/*.rdb
 .DS_Store
+config/*.json
