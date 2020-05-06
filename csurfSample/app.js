@@ -3,10 +3,16 @@ var path = require('path');
 var favicon = require('static-favicon');
 // setting logger
 //var fs = require('fs');
-var rfs = require('rotating-file-stream') // version 2.x
-var morgan = require('morgan');
+//var rfs = require('rotating-file-stream') // version 2.x
+//var morgan = require('morgan');
+
 var path = require('path');
+var log4js = require('log4js');
+var log = log4js.getLogger("app");
+
+
 // create a rotating write stream
+/*
 var accessLogStream = rfs.createStream('xrain_nodejs.log', {
   interval: '1d', // rotate daily
   path: path.join(__dirname, 'logs')
@@ -20,12 +26,14 @@ const errorOutput = rfs.createStream('xrain_nodejs_stderr.log', {
   interval: '1d', // rotate daily
   path: path.join(__dirname, 'logs')
 })
+*/
 
 // custom simple logger
-const { Console } = require('console');
-const logger = module.exports = new Console(output, errorOutput);
+//const { Console } = require('console');
+//const logger = module.exports = new Console(output, errorOutput);
 
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
 //session Use
 const redis = require('redis')
@@ -37,10 +45,10 @@ let redisClient = redis.createClient({
 	db: 0,
 })
 redisClient.unref()
-redisClient.on('error', logger.log)
+redisClient.on('error', console.log)
 
 
-var bodyParser = require('body-parser');
+
 var csurf = require('csurf');
 //var csrfProtection = csurf({ cookie: true })
 
@@ -50,8 +58,9 @@ var routes = require('./routes/index');
 var app = express();
 
 // setup the logger
-app.use(morgan('combined', { stream: accessLogStream }));
-app.use(morgan('dev'));
+//app.use(morgan('combined', { stream: accessLogStream }));
+//app.use(morgan('dev'));
+app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -96,14 +105,15 @@ app.use(function(req, res, next) {
 });
 
 /// error handlers
-logger.log("[xrain debug:app.js] print config information")
-logger.log(app.get('env'));
+log.info("[xrain debug:app.js] print config information")
+log.info(app.get('env'));
 var config = require('./config/config.json')[app.get('env')];
-logger.log(config.description);
+log.info(config.description);
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
 	app.use(function(err, req, res, next) {
+        log.error("[xrain debug:app.js]Something went wrong:", err);
 		res.status(err.status || 500);
 		res.render('error', {
 			message: err.message,
@@ -115,12 +125,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-	logger.log("[xrain debug:app.js] production error=>" + JSON.stringify({
-		message: err.message,
-		error: {
-			err
-		}
-	}))
+	log.error("[xrain debug:app.js] production error=>", err)
 	res.status(err.status || 500);
 	// Replace error message
     if (err.message === "invalid csrf token"){

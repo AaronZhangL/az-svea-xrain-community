@@ -1,27 +1,4 @@
-var logger = require('../app');
-/*
-logger = Console {
-  log: [Function: bound log],
-  warn: [Function: bound warn],
-  dir: [Function: bound dir],
-  time: [Function: bound time],
-  timeEnd: [Function: bound timeEnd],
-  timeLog: [Function: bound timeLog],
-  trace: [Function: bound trace],
-  assert: [Function: bound assert],
-  clear: [Function: bound clear],
-  count: [Function: bound count],
-  countReset: [Function: bound countReset],
-  group: [Function: bound group],
-  groupEnd: [Function: bound groupEnd],
-  table: [Function: bound table],
-  debug: [Function: bound log],
-  info: [Function: bound log],
-  dirxml: [Function: bound log],
-  error: [Function: bound warn],
-  groupCollapsed: [Function: bound group]
-}
-*/
+var log = require('log4js').getLogger("index");
 var express = require('express');
 var router = express.Router();
 const axios = require('axios');
@@ -46,8 +23,8 @@ router.get('/', function(req, res) {
 	//トークンをSessionに保存する
 	req.session.csrfToken = token;
 
-	logger.log('[xrain debug:index.js]Print get function token');
-	logger.log(token);
+	log.debug('[xrain debug:index.js]Print get function token');
+	log.info(token);
 	//res.render('index', { title: 'Express',reqCsrf:req.csrfToken()});
 
 	res.render('index', {
@@ -68,14 +45,14 @@ router.post('/', function(req, res) {
 	//TokenをHidden Itemから取得する
 	var ui_token = req.body._csrf;
 
-	logger.log('[xrain debug:index.js]Print post function secret/token/ui_token');
-	logger.log(secret);
-	logger.log(token);
-	logger.log(ui_token);
+	log.info('[xrain debug:index.js]Print post function secret/token/ui_token');
+	log.info(secret);
+	log.info(token);
+	log.info(ui_token);
 
 	//秘密文字とトークンの組み合わせが正しいかチェックする
 	if (tokens.verify(secret, token) === false) {
-		logger.log('[xrain debug:index.js] Invalid Token');
+		log.info('[xrain debug:index.js] Invalid Token');
 		throw new Error('Invalid Token');
 	}
 	/*
@@ -86,9 +63,9 @@ router.post('/', function(req, res) {
 	// TODO: Move params to config fiel
 	var hl_summary = req.body.hl_summary;
 	var ml_source_code = req.body.ml_source_code;
-	logger.log('[xrain debug:index.js]Print post function: hl_summary/ml_source_code');
-	logger.log(hl_summary);
-	logger.log(ml_source_code);
+	log.info('[xrain debug:index.js]Print post function: hl_summary/ml_source_code');
+	log.info(hl_summary);
+	log.info(ml_source_code);
 
 	axios.post('http://127.0.0.1:8000/snippets2/', {
 			"id": 0,
@@ -99,8 +76,8 @@ router.post('/', function(req, res) {
 			"style": "abap"
 		})
 		.then(function(response) {
-			logger.log('Call django API');
-			logger.log(response.data);
+			log.info('Call django API');
+			log.info(response.data);
 
 			//使用済みの秘密文字を削除する
 			//delete req.session.csrfSecret;
@@ -126,7 +103,7 @@ router.post('/', function(req, res) {
 				status,
 				statusText
 			} = error.response;
-			logger.log(`Error! HTTP Status: ${status} ${statusText}`);
+			log.info(`Error! HTTP Status: ${status} ${statusText}`);
 			//使用済みの秘密文字を削除する
 			//delete req.session.csrfSecret;
 			//使用済みのトークンを削除する
