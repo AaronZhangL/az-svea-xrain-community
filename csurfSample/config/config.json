@@ -1,8 +1,0 @@
-{
-    "development": {
-        "description": "development-server"
-    },
-    "production" : {
-        "description": "product-server"
-    }
-}

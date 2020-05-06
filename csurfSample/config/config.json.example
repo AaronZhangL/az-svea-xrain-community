@@ -1,0 +1,28 @@
+{
+    "development": {
+        "description": "development-server",
+        "title" : "",
+        "subTitle": "",
+        "footerTitle": "",
+        "api_url": "",
+        "api_json_format": "",
+        "security_ips": ["127.0.0.1", "localhost", "::1"],
+        "session_secret_key": "",
+        "redis_host":"localhost",
+        "redis_port":6379,
+        "redis_db": 0
+    },
+    "production" : {
+        "description": "product-server",
+        "title" : "",
+        "subTitle": "",
+        "footerTitle": "",
+        "api_url": "",
+        "api_json_format": "",
+        "security_ips": ["127.0.0.1", "localhost", "::1"],
+        "session_secret_key": "",
+        "redis_host":"localhost",
+        "redis_port":6379,
+        "redis_db": 0
+    }
+}

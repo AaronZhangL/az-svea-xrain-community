@@ -1,3 +1,5 @@
+const {getConfigData} = require('../tools.js');
+//var config = require('../app');
 var log = require('log4js').getLogger("index");
 var express = require('express');
 var router = express.Router();
@@ -7,11 +9,19 @@ const axios = require('axios');
 var csrf = require('csrf');
 var tokens = new csrf();
 
-// TODO: Move to config file
-const titleName = 'Xrain Translate'
-const subTitleName = ''
-const footerString = 'Copyleft © 2020-2020 MIT License'
-
+var config = getConfigData();
+const titleName = config.title;
+const subTitleName = config.subTitle;
+const footerString = config.footerTitle;
+const apiUrl = config.api_url;
+/*
+log.debug("***** print index config **********");
+log.debug(process.env.NODE_ENV);
+log.debug(config);
+log.debug(titleName);
+log.debug(subTitleName);
+log.debug(footerString);
+*/
 /* Common function*/
 function initToken() {
 	return number * number;
@@ -60,14 +70,13 @@ router.post('/', function(req, res) {
 	{throw new Error('Invalid Token-2');}
 	*/
 
-	// TODO: Move params to config fiel
 	var hl_summary = req.body.hl_summary;
 	var ml_source_code = req.body.ml_source_code;
 	log.info('[xrain debug:index.js]Print post function: hl_summary/ml_source_code');
 	log.info(hl_summary);
 	log.info(ml_source_code);
 
-	axios.post('http://127.0.0.1:8000/snippets2/', {
+	axios.post(apiUrl, {
 			"id": 0,
 			"title": hl_summary,
 			"code": "print('xxxxxxxxxx')",

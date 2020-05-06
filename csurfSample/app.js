@@ -1,6 +1,7 @@
+const tools = require('./tools.js');
 var express = require('express');
-var ipfilter = require( 'express-ipfilter' ).IpFilter;
-var ips = [ '127.0.0.1', 'localhost', '::1'];
+var ipfilter = require('express-ipfilter').IpFilter;
+
 var path = require('path');
 var favicon = require('static-favicon');
 // setting logger
@@ -18,13 +19,6 @@ var bodyParser = require('body-parser');
 const redis = require('redis')
 const session = require('express-session')
 let RedisStore = require('connect-redis')(session)
-let redisClient = redis.createClient({
-	host: 'localhost',
-	port: 6379,
-	db: 0,
-})
-redisClient.unref()
-redisClient.on('error', console.log)
 
 var csurf = require('csurf');
 //var csrfProtection = csurf({ cookie: true })
@@ -34,8 +28,30 @@ var routes = require('./routes/index');
 
 var app = express();
 
+// config file
+log.info("*** print config information ***")
+log.info(process.env.NODE_ENV);
+var config = tools.getConfigData();
+log.info(config);
+
+// redis setting
+let redisClient = redis.createClient({
+	host: config.redis_host,
+	port: config.redis_port,
+	db: config.redis_db,
+})
+redisClient.unref()
+//redisClient.on('error', console.log)
+redisClient.on('error', function(err) {
+	log.error('Redis error: ' + err);
+})
+
+// security
+var ips = config.security_ips; // example: [ '127.0.0.1', 'localhost', '::1'];
 // ip white list
-app.use( ipfilter( ips, { mode: 'allow' } ) );
+app.use(ipfilter(ips, {
+	mode: 'allow'
+}));
 // ip black list
 //app.use( ipfilter( ips ) );
 
@@ -60,10 +76,10 @@ app.use(session({
 	store: new RedisStore({
 		client: redisClient
 	}),
-	secret: 'IamAdmin1980', // Secret Keyで暗号化し、改ざんを防ぐ
+	secret: config.session_secret_key, // Secret Keyで暗号化し、改ざんを防ぐ
 	ttl: 3600,
 	cookie: {
-		//生存期間は3日
+		//生存期間は1日
 		maxAge: 1 * 24 * 60 * 1000,
 		//httpsを使用しない
 		secure: false
@@ -82,15 +98,12 @@ app.use(function(req, res, next) {
 });
 
 /// error handlers
-log.info("[xrain debug:app.js] print config information")
-log.info(app.get('env'));
-var config = require('./config/config.json')[app.get('env')];
-log.info(config.description);
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
 	app.use(function(err, req, res, next) {
-        log.error("[xrain debug:app.js]Something went wrong:", err);
+		log.error("[xrain debug:app.js]Something went wrong:", err);
 		res.status(err.status || 500);
 		res.render('error', {
 			message: err.message,
@@ -105,7 +118,7 @@ app.use(function(err, req, res, next) {
 	log.error("[xrain debug:app.js] production error=>", err)
 	res.status(err.status || 500);
 	// Replace error message
-    if (err.message === "invalid csrf token"){
+	if (err.message === "invalid csrf token") {
 		err.message = "Permission denied";
 	}
 	res.render('error', {
