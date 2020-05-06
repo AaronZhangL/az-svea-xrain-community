@@ -22,7 +22,7 @@ var csurf = require('csurf');
 //var csrfProtection = csurf({ cookie: true })
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 
 var app = express();
 
