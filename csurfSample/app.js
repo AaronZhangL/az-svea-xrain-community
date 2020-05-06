@@ -1,7 +1,30 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
-var logger = require('morgan');
+// setting logger
+//var fs = require('fs');
+var rfs = require('rotating-file-stream') // version 2.x
+var morgan = require('morgan');
+var path = require('path');
+// create a rotating write stream
+var accessLogStream = rfs.createStream('xrain_nodejs.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'logs')
+})
+
+const output = rfs.createStream('xrain_nodejs_stdout.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'logs')
+})
+const errorOutput = rfs.createStream('xrain_nodejs_stderr.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'logs')
+})
+
+// custom simple logger
+const { Console } = require('console');
+const logger = module.exports = new Console(output, errorOutput);
+
 var cookieParser = require('cookie-parser');
 
 //session Use
@@ -14,7 +37,7 @@ let redisClient = redis.createClient({
 	db: 0,
 })
 redisClient.unref()
-redisClient.on('error', console.log)
+redisClient.on('error', logger.log)
 
 
 var bodyParser = require('body-parser');
@@ -26,12 +49,16 @@ var routes = require('./routes/index');
 
 var app = express();
 
+// setup the logger
+app.use(morgan('combined', { stream: accessLogStream }));
+app.use(morgan('dev'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(favicon());
-app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(express.urlencoded({
 	extended: true
@@ -69,14 +96,13 @@ app.use(function(req, res, next) {
 });
 
 /// error handlers
-console.log("[xrain debug] print config information")
-console.log(app.get('env'));
+logger.log("[xrain debug:app.js] print config information")
+logger.log(app.get('env'));
 var config = require('./config/config.json')[app.get('env')];
-console.log(config.description);
+logger.log(config.description);
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-	console.log("[aaron debug]env => development")
 	app.use(function(err, req, res, next) {
 		res.status(err.status || 500);
 		res.render('error', {
@@ -89,7 +115,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-	console.log("[xrain] app production error=>" + JSON.stringify({
+	logger.log("[xrain debug:app.js] production error=>" + JSON.stringify({
 		message: err.message,
 		error: {
 			err
