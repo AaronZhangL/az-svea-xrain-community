@@ -70,19 +70,35 @@ router.post('/', function(req, res) {
 	{throw new Error('Invalid Token-2');}
 	*/
 
+	var select_hl = req.body.select_hl;
+	var select_ml = req.body.select_ml;
 	var hl_summary = req.body.hl_summary;
 	var ml_source_code = req.body.ml_source_code;
-	log.info('[xrain debug:index.js]Print post function: hl_summary/ml_source_code');
+	log.info('[xrain debug:index.js]Print post function: select_hl/select_ml/hl_summary/ml_source_code');
+	log.info(select_hl);
+	log.info(select_ml);
 	log.info(hl_summary);
 	log.info(ml_source_code);
 
+    /*
+	_data = {
+		"hl_summary": response[0].hl_summary,
+		"ml_source_code": response[0].ml_source_code,
+		"url": response[0].rul,
+		"ml_type": response[0].ml_type,
+		"ml_version": response[0].ml_version,
+		"ml_code_style": response[0].ml_code_style,
+		"create_date": response[0].create_date,
+		"update_date": response[0].update_date,
+		"client_agent": response[0].client_agent
+	}
+	*/
+	// TODO: Add select_hl filter
+	// TODO: Set select_hl and select_ml items value on views page
 	axios.post(apiUrl, {
-			"id": 0,
-			"title": hl_summary,
-			"code": "print('xxxxxxxxxx')",
-			"linenos": false,
-			"language": "C#",
-			"style": "abap"
+		"hl_summary": hl_summary,
+		"hl_type": select_hl,
+		"ml_type": select_ml
 		})
 		.then(function(response) {
 			log.info('Call django API');
@@ -103,7 +119,7 @@ router.post('/', function(req, res) {
 				footer: footerString,
 				reqCsrf: token,
 				hl_summary: hl_summary,
-				ml_source_code: response.data.code
+				ml_source_code: response.data.ml_source_code
 			});
 
 		})
