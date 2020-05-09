@@ -402,9 +402,25 @@
 									version: 3,
 									singleLineStringErrors: false
 								},
+								theme: "default",
 								lineNumbers: true,
+								firstLineNumber: 1,
 								indentUnit: 4,
-								matchBrackets: true
+								indentWithTabs: false,
+								matchBrackets: true,
+								onKeyEvent: function(i, e) {
+									// Hook into F11
+									if ((e.keyCode == 122 || e.keyCode == 27) && e.type == 'keydown') {
+										e.stop();
+										return toggleFullscreenEditing();
+									}
+								}
+							});
+							var select_ml_opt = document.getElementById('select_ml').value;
+							editor.setOption("mode", {
+								name: select_ml_opt,
+								version: 3,
+								singleLineStringErrors: false
 							});
 						</script>
 					</div>
