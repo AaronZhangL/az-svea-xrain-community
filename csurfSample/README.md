@@ -44,6 +44,7 @@ $ sh az-startPro.sh
  - [ ] Add alert message if there isn't result about ml_source_code
  - [ ] Add csrf python certification and change API IF
  - [ ] Update machine language mapping function[getStyleCodeByLanguageName]
+ - [ ] There is a cash info when pressed F5 key to refresh page.
  - [x] Lazy Mode Loading
  - [x] Add nodejs config file (2020-05-07)
  - [x] Add log to file logic. (2020-05-07)
