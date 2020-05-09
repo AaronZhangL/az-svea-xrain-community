@@ -30,6 +30,7 @@
 	<script src="/CodeMirror/addon/fold/markdown-fold.js"></script>
 	<script src="/CodeMirror/addon/fold/comment-fold.js"></script>
 	<script src="/CodeMirror/mode/javascript/javascript.js"></script>
+	<script src="/CodeMirror/mode/clike.js"></script>
 
 	<link rel='stylesheet' href='/stylesheets/style.css' />
 	<link rel='stylesheet' href='/stylesheets/sementic-ui-xrain.css' />
@@ -38,6 +39,18 @@
 			color: #999;
 		}
 	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#select_hl').change(function() {
+		        $('#hl_summary').val('');
+		    });
+			$('#select_ml').change(function() {
+		        // $('#CodeMirror-lines').val('');
+				editor.setValue("");
+				editor.clearHistory();
+		    });
+		});
+	</script>
 </head>
 
 <body>
