@@ -8,10 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="semantic/dist/semantic.min.js"></script>
-	<!--
-	<script src="semantic/dist/components/dropdown.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/components/dropdown.min.css">
-	-->
+	<script src="/javascripts/xrain.js"></script>
 
 	<script src="/javascripts/xhrAccess.js"></script>
 	<link rel=stylesheet href="CodeMirror/lib/codemirror.css">
@@ -254,136 +251,141 @@
 							<div class="default text">Select Machine Language</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
-								<div class="item" data-value="apl">apl</div>
-								<div class="item" data-value="asciiarmor">asciiarmor</div>
-								<div class="item" data-value="asn.1">asn.1</div>
-								<div class="item" data-value="asterisk">asterisk</div>
-								<div class="item" data-value="brainfuck">brainfuck </div>
-								<div class="item" data-value="cshap">cshap</div>
-								<div class="item" data-value="clike">clike</div>
-								<div class="item" data-value="clojure">clojure </div>
-								<div class="item" data-value="cmake">cmake</div>
-								<div class="item" data-value="cobol">cobol</div>
-								<div class="item" data-value="coffeescript">coffeescript </div>
-								<div class="item" data-value="commonlisp">commonlisp</div>
-								<div class="item" data-value="crystal">crystal </div>
-								<div class="item" data-value="css">css</div>
-								<div class="item" data-value="cypher">cypher</div>
-								<div class="item" data-value="d">d</div>
-								<div class="item" data-value="dart">dart </div>
-								<div class="item" data-value="diff">diff </div>
-								<div class="item" data-value="django">django</div>
-								<div class="item" data-value="dockerfile">dockerfile</div>
-								<div class="item" data-value="dtd">dtd</div>
-								<div class="item" data-value="dylan">dylan</div>
-								<div class="item" data-value="ebnf">ebnf </div>
-								<div class="item" data-value="ecl">ecl</div>
-								<div class="item" data-value="eiffel">eiffel</div>
-								<div class="item" data-value="elm">elm</div>
-								<div class="item" data-value="erlang">erlang</div>
-								<div class="item" data-value="factor">factor</div>
-								<div class="item" data-value="fcl">fcl</div>
-								<div class="item" data-value="forth">forth</div>
-								<div class="item" data-value="fortran">fortran </div>
-								<div class="item" data-value="gas">gas</div>
-								<div class="item" data-value="gfm">gfm</div>
-								<div class="item" data-value="gherkin">gherkin </div>
-								<div class="item" data-value="go">go </div>
-								<div class="item" data-value="groovy">groovy</div>
-								<div class="item" data-value="haml">haml </div>
-								<div class="item" data-value="handlebars">handlebars</div>
-								<div class="item" data-value="haskell">haskell </div>
-								<div class="item" data-value="haskell-literate">haskell-literate</div>
-								<div class="item" data-value="haxe">haxe </div>
-								<div class="item" data-value="htmlembedded">htmlembedded </div>
-								<div class="item" data-value="htmlmixed">htmlmixed </div>
-								<div class="item" data-value="http">http </div>
-								<div class="item" data-value="idl">idl</div>
-								<div class="item" data-value="java">java</div>
-								<div class="item" data-value="javascript">javascript</div>
-								<div class="item" data-value="jinja2">jinja2</div>
-								<div class="item" data-value="jsx">jsx</div>
-								<div class="item" data-value="julia">julia</div>
-								<div class="item" data-value="livescript">livescript</div>
-								<div class="item" data-value="lua">lua</div>
-								<div class="item" data-value="markdown">markdown</div>
-								<div class="item" data-value="mathematica">mathematica</div>
-								<div class="item" data-value="mbox">mbox </div>
-								<div class="item" data-value="mirc">mirc </div>
-								<div class="item" data-value="mllike">mllike</div>
-								<div class="item" data-value="model.txt">model.txt </div>
-								<div class="item" data-value="modelica">modelica</div>
-								<div class="item" data-value="mscgen">mscgen</div>
-								<div class="item" data-value="mumps">mumps</div>
-								<div class="item" data-value="nginx">nginx</div>
-								<div class="item" data-value="nsis">nsis </div>
-								<div class="item" data-value="ntriples">ntriples</div>
-								<div class="item" data-value="octave">octave</div>
-								<div class="item" data-value="oz">oz </div>
-								<div class="item" data-value="pascal">pascal</div>
-								<div class="item" data-value="pegjs">pegjs</div>
-								<div class="item" data-value="perl">perl </div>
-								<div class="item" data-value="php">php</div>
-								<div class="item" data-value="pig">pig</div>
-								<div class="item" data-value="powershell">powershell</div>
-								<div class="item" data-value="properties">properties</div>
-								<div class="item" data-value="protobuf">protobuf</div>
-								<div class="item" data-value="pug">pug</div>
-								<div class="item" data-value="puppet">puppet</div>
-								<div class="item" data-value="python">python</div>
-								<div class="item" data-value="q">q</div>
-								<div class="item" data-value="r">r</div>
-								<div class="item" data-value="rpm">rpm</div>
-								<div class="item" data-value="rst">rst</div>
-								<div class="item" data-value="ruby">ruby </div>
-								<div class="item" data-value="rust">rust </div>
-								<div class="item" data-value="sas">sas</div>
-								<div class="item" data-value="sass">sass </div>
-								<div class="item" data-value="scheme">scheme</div>
-								<div class="item" data-value="shell">shell</div>
-								<div class="item" data-value="sieve">sieve</div>
-								<div class="item" data-value="slim">slim </div>
-								<div class="item" data-value="smalltalk">smalltalk </div>
-								<div class="item" data-value="smarty">smarty</div>
-								<div class="item" data-value="solr">solr </div>
-								<div class="item" data-value="soy">soy</div>
-								<div class="item" data-value="sparql">sparql</div>
-								<div class="item" data-value="spreadsheet">spreadsheet</div>
-								<div class="item" data-value="sql">sql</div>
-								<div class="item" data-value="stex">stex </div>
-								<div class="item" data-value="stylus">stylus</div>
-								<div class="item" data-value="swift">swift</div>
-								<div class="item" data-value="tcl">tcl</div>
-								<div class="item" data-value="textile">textile </div>
-								<div class="item" data-value="tiddlywiki">tiddlywiki</div>
-								<div class="item" data-value="tiki">tiki </div>
-								<div class="item" data-value="toml">toml </div>
-								<div class="item" data-value="tornado">tornado </div>
-								<div class="item" data-value="troff">troff</div>
-								<div class="item" data-value="ttcn">ttcn </div>
-								<div class="item" data-value="ttcn-cfg">ttcn-cfg</div>
-								<div class="item" data-value="turtle">turtle</div>
-								<div class="item" data-value="twig">twig </div>
-								<div class="item" data-value="vb">vb </div>
-								<div class="item" data-value="vbscript">vbscript</div>
-								<div class="item" data-value="velocity">velocity</div>
-								<div class="item" data-value="verilog">verilog </div>
-								<div class="item" data-value="vhdl">vhdl </div>
-								<div class="item" data-value="vue">vue</div>
-								<div class="item" data-value="wast">wast </div>
-								<div class="item" data-value="webidl">webidl</div>
-								<div class="item" data-value="xml">xml</div>
-								<div class="item" data-value="xquery">xquery</div>
-								<div class="item" data-value="yacas">yacas</div>
-								<div class="item" data-value="yaml">yaml </div>
-								<div class="item" data-value="yaml-frontmatter">yaml-frontmatter</div>
-								<div class="item" data-value="z80">z80</div>
+								<div class="item" data-value="APL">APL</div>
+								<div class="item" data-value="ASN.1">ASN.1</div>
+								<div class="item" data-value="Asterisk dialplan">Asterisk dialplan</div>
+								<div class="item" data-value="Brainfuck">Brainfuck</div>
+								<div class="item" data-value="C, C++, C#">C, C++, C#</div>
+								<div class="item" data-value="Ceylon">Ceylon</div>
+								<div class="item" data-value="Clojure">Clojure</div>
+								<div class="item" data-value="Closure Stylesheets (GSS)">Closure Stylesheets (GSS)</div>
+								<div class="item" data-value="CMake">CMake</div>
+								<div class="item" data-value="COBOL">COBOL</div>
+								<div class="item" data-value="CoffeeScript">CoffeeScript</div>
+								<div class="item" data-value="Common Lisp">Common Lisp</div>
+								<div class="item" data-value="Crystal">Crystal</div>
+								<div class="item" data-value="CSS">CSS</div>
+								<div class="item" data-value="Cypher">Cypher</div>
+								<div class="item" data-value="Cython">Cython</div>
+								<div class="item" data-value="D">D</div>
+								<div class="item" data-value="Dart">Dart</div>
+								<div class="item" data-value="Django (templating language)">Django (templating language)</div>
+								<div class="item" data-value="Dockerfile">Dockerfile </div>
+								<div class="item" data-value="diff">diff</div>
+								<div class="item" data-value="DTD">DTD</div>
+								<div class="item" data-value="Dylan">Dylan</div>
+								<div class="item" data-value="EBNF">EBNF</div>
+								<div class="item" data-value="ECL">ECL</div>
+								<div class="item" data-value="Eiffel">Eiffel</div>
+								<div class="item" data-value="Elixir">Elixir</div>
+								<div class="item" data-value="Elm">Elm</div>
+								<div class="item" data-value="Erlang">Erlang</div>
+								<div class="item" data-value="Factor">Factor</div>
+								<div class="item" data-value="FCL">FCL</div>
+								<div class="item" data-value="Forth">Forth</div>
+								<div class="item" data-value="Fortran">Fortran</div>
+								<div class="item" data-value="F#">F#</div>
+								<div class="item" data-value="Gas (AT&T-style assembly)">Gas (AT&T-style assembly)</div>
+								<div class="item" data-value="Gherkin">Gherkin</div>
+								<div class="item" data-value="Go">Go</div>
+								<div class="item" data-value="Groovy">Groovy</div>
+								<div class="item" data-value="HAML">HAML</div>
+								<div class="item" data-value="Handlebars">Handlebars</div>
+								<div class="item" data-value="Haskell (Literate)">Haskell (Literate)</div>
+								<div class="item" data-value="Haxe">Haxe</div>
+								<div class="item" data-value="HTML embedded (JSP, ASP.NET)">HTML embedded (JSP, ASP.NET)</div>
+								<div class="item" data-value="HTML mixed-mode">HTML mixed-mode</div>
+								<div class="item" data-value="HTTP">HTTP</div>
+								<div class="item" data-value="IDL">IDL</div>
+								<div class="item" data-value="Java">Java</div>
+								<div class="item" data-value="JavaScript (JSX)">JavaScript (JSX)</div>
+								<div class="item" data-value="Jinja2">Jinja2</div>
+								<div class="item" data-value="Julia">Julia</div>
+								<div class="item" data-value="Kotlin">Kotlin</div>
+								<div class="item" data-value="LESS">LESS</div>
+								<div class="item" data-value="LiveScript">LiveScript</div>
+								<div class="item" data-value="Lua">Lua</div>
+								<div class="item" data-value="Markdown (GitHub-flavour)">Markdown (GitHub-flavour)</div>
+								<div class="item" data-value="Mathematica">Mathematica</div>
+								<div class="item" data-value="mbox">mbox</div>
+								<div class="item" data-value="mIRC">mIRC</div>
+								<div class="item" data-value="Modelica">Modelica</div>
+								<div class="item" data-value="MscGen">MscGen</div>
+								<div class="item" data-value="MUMPS">MUMPS</div>
+								<div class="item" data-value="Nginx">Nginx</div>
+								<div class="item" data-value="NSIS">NSIS</div>
+								<div class="item" data-value="N-Triples/N-Quads">N-Triples/N-Quads</div>
+								<div class="item" data-value="Objective C">Objective C</div>
+								<div class="item" data-value="OCaml">OCaml</div>
+								<div class="item" data-value="Octave (MATLAB)">Octave (MATLAB)</div>
+								<div class="item" data-value="Oz">Oz</div>
+								<div class="item" data-value="Pascal">Pascal</div>
+								<div class="item" data-value="PEG.js">PEG.js</div>
+								<div class="item" data-value="Perl">Perl</div>
+								<div class="item" data-value="PGP (ASCII armor)">PGP (ASCII armor)</div>
+								<div class="item" data-value="PHP">PHP</div>
+								<div class="item" data-value="Pig Latin">Pig Latin</div>
+								<div class="item" data-value="PowerShell">PowerShell</div>
+								<div class="item" data-value="Properties files">Properties files</div>
+								<div class="item" data-value="ProtoBuf">ProtoBuf</div>
+								<div class="item" data-value="Pug">Pug</div>
+								<div class="item" data-value="Puppet">Puppet</div>
+								<div class="item" data-value="Python">Python</div>
+								<div class="item" data-value="Q">Q</div>
+								<div class="item" data-value="R">R</div>
+								<div class="item" data-value="RPM">RPM</div>
+								<div class="item" data-value="reStructuredText">reStructuredText</div>
+								<div class="item" data-value="Ruby">Ruby</div>
+								<div class="item" data-value="Rust">Rust</div>
+								<div class="item" data-value="SAS">SAS</div>
+								<div class="item" data-value="Sass">Sass</div>
+								<div class="item" data-value="Spreadsheet">Spreadsheet</div>
+								<div class="item" data-value="Scala">Scala</div>
+								<div class="item" data-value="Scheme">Scheme</div>
+								<div class="item" data-value="SCSS ">SCSS</div>
+								<div class="item" data-value="Shell">Shell</div>
+								<div class="item" data-value="Sieve">Sieve</div>
+								<div class="item" data-value="Slim">Slim</div>
+								<div class="item" data-value="Smalltalk">Smalltalk</div>
+								<div class="item" data-value="Smarty">Smarty</div>
+								<div class="item" data-value="Solr">Solr</div>
+								<div class="item" data-value="Soy">Soy</div>
+								<div class="item" data-value="Stylus">Stylus</div>
+								<div class="item" data-value="SQL (several dialects)">SQL (several dialects)</div>
+								<div class="item" data-value="SPARQL">SPARQL</div>
+								<div class="item" data-value="Squirrel">Squirrel</div>
+								<div class="item" data-value="Swift">Swift</div>
+								<div class="item" data-value="sTeX, LaTeX">sTeX, LaTeX</div>
+								<div class="item" data-value="Tcl">Tcl</div>
+								<div class="item" data-value="Textile">Textile</div>
+								<div class="item" data-value="Tiddlywiki ">Tiddlywiki </div>
+								<div class="item" data-value="Tiki wiki">Tiki wiki</div>
+								<div class="item" data-value="TOML">TOML</div>
+								<div class="item" data-value="Tornado (templating language)">Tornado (templating language)</div>
+								<div class="item" data-value="troff (for manpages)">troff (for manpages)</div>
+								<div class="item" data-value="TTCN">TTCN</div>
+								<div class="item" data-value="TTCN Configuration">TTCN Configuration</div>
+								<div class="item" data-value="Turtle">Turtle</div>
+								<div class="item" data-value="Twig ">Twig </div>
+								<div class="item" data-value="VB.NET">VB.NET</div>
+								<div class="item" data-value="VBScript">VBScript</div>
+								<div class="item" data-value="Velocity">Velocity</div>
+								<div class="item" data-value="Verilog/SystemVerilog">Verilog/SystemVerilog</div>
+								<div class="item" data-value="VHDL">VHDL</div>
+								<div class="item" data-value="Vue.js app">Vue.js app</div>
+								<div class="item" data-value="Web IDL">Web IDL</div>
+								<div class="item" data-value="XML/HTML">XML/HTML</div>
+								<div class="item" data-value="XQuery">XQuery</div>
+								<div class="item" data-value="Yacas">Yacas</div>
+								<div class="item" data-value="YAML">YAML</div>
+								<div class="item" data-value="YAML frontmatter">YAML frontmatter</div>
+								<div class="item" data-value="Z80">Z80</div>
 							</div>
 						</div>
 						<script>
-							var option = "python";
+							var option = "Python";
 							var select_ml_opt = document.getElementById('select_ml').value;
-							if (select_ml_opt != "python" && select_ml_opt != null && select_ml_opt != "") {
+							if (select_ml_opt != "Python" && select_ml_opt != null && select_ml_opt != "") {
 								option = select_ml_opt
 							}
 							$(function() {
@@ -421,15 +423,18 @@
 								theme: "default",
 								lineNumbers: true,
 								firstLineNumber: 1,
+								tabSize: 4,
 								indentUnit: 4,
 								indentWithTabs: false,
 								matchBrackets: true,
 								foldGutter: true,
+								indentWithTabs: true,
 								gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
 							});
 							var select_ml_opt = document.getElementById('select_ml').value;
+							var ml_opt = getStyleCodeByLanguageName(select_ml_opt);
 							editor.setOption("mode", {
-								name: select_ml_opt,
+								name: ml_opt,
 								version: 3,
 								singleLineStringErrors: false
 							});

@@ -39,7 +39,7 @@ router.get('/', function(req, res) {
 
 	res.render('index', {
 		select_hl_option: "en",
-		select_ml_option: "python",
+		select_ml_option: "Python",
 		title: titleName,
 		subTitle: subTitleName,
 		footer: footerString,

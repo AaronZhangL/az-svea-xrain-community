@@ -35,18 +35,20 @@ $ sh az-startPro.sh
 ```
 
 ## TODO
- - [x] https://highlightjs.org (Skiped)
+
  - [ ] https://github.com/AaronZhangL/httpie
  - [ ] Less than 5000 characters
- - [x] Drop down list(Human language/Machine Language)
- - [ ] Lazy Mode Loading
  - [ ] https://semantic-ui.com/modules/dropdown.html#/examples
  - [ ] https://github.com/log4js-node/log4js-node/issues/139
  - [ ] Add null check about hl_summary
  - [ ] Add alert message if there isn't result about ml_source_code
  - [ ] Add csrf python certification and change API IF
+ - [ ] Update machine language mapping function[getStyleCodeByLanguageName]
+ - [x] Lazy Mode Loading
  - [x] Add nodejs config file (2020-05-07)
  - [x] Add log to file logic. (2020-05-07)
+ - [x] Drop down list(Human language/Machine Language)
+ - [x] https://highlightjs.org (Skiped)
 
 
 ##### Reference
