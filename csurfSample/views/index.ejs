@@ -29,7 +29,7 @@
 
 <body>
 	<h1><%= title %></h1>
-	<form action="/" method="post">
+	<form id="xform" name="xform" action="/" method="post">
 		<input id="token" type="hidden" name="_csrf" value="<%= reqCsrf %>">
 		<div class="ui equal width grid">
 			<!--Row 0 Header-->
@@ -52,7 +52,7 @@
                     -->
 						<!-- example of dropdown list -->
 						<div class="ui fluid search selection dropdown">
-							<input type="hidden" name="select_hl">
+							<input type="hidden" id="select_hl" name="select_hl" value=<%= select_hl_option %>>
 							<div class="default text">Select Human Language</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
@@ -211,9 +211,14 @@
 
 						</div>
 						<script>
+							var option = "en";
+							var select_hl_opt = document.getElementById('select_hl').value;
+							if (select_hl_opt != "en" && select_hl_opt != null && select_hl_opt != "") {
+								option = select_hl_opt
+							}
 							$(function() {
 								$('.ui.dropdown')
-									.dropdown('set selected', 'en');
+									.dropdown('set selected', option);
 							});
 						</script>
 					</div>
@@ -229,7 +234,7 @@
 					<div class="ui segment">
 						<!-- machine language -->
 						<div class="ui fluid search selection dropdown">
-							<input type="hidden" name="select_ml">
+							<input type="hidden" id="select_ml" name="select_ml" value=<%= select_ml_option%>>
 							<div class="default text">Select Machine Language</div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
@@ -360,16 +365,22 @@
 							</div>
 						</div>
 						<script>
+							var option = "python";
+							var select_ml_opt = document.getElementById('select_ml').value;
+							if (select_ml_opt != "python" && select_ml_opt != null && select_ml_opt != "") {
+								option = select_ml_opt
+							}
 							$(function() {
-								//$('.ui.dropdown').dropdown();
 								$('.ui.dropdown')
-									.dropdown('set selected', 'python');
+									.dropdown('set selected', option);
 							});
 						</script>
 					</div>
 				</div>
 				<div class="column">
-					<div class="ui segment"></div>
+					<div class="ui segment">
+
+					</div>
 				</div>
 			</div>
 			<!-- Row 2-->
@@ -406,9 +417,16 @@
 						<div class="box footer"><%= footer %></div>
 					</div>
 				</div>
-				</dißv>
 			</div>
-
+		</div>
+		<script>
+			var select = document.getElementById("select_hl");
+			for (var i = 0; i < select.options.length; i++) {
+				if (select.options[i].value == c) {
+					select.options[i].selected = true;
+				}
+			}
+		</script>
 	</form>
 	<!--
     <form action="/registXhr" method="post">

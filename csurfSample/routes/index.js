@@ -38,6 +38,8 @@ router.get('/', function(req, res) {
 	//res.render('index', { title: 'Express',reqCsrf:req.csrfToken()});
 
 	res.render('index', {
+		select_hl_option: "en",
+		select_ml_option: "python",
 		title: titleName,
 		subTitle: subTitleName,
 		footer: footerString,
@@ -114,6 +116,8 @@ router.post('/', function(req, res) {
 			//トークンをSessionに保存する
 			req.session.csrfToken = token;
 			res.render('index', {
+				select_hl_option: select_hl,
+				select_ml_option: select_ml,
 				title: titleName,
 				subTitle: subTitleName,
 				footer: footerString,
@@ -139,6 +143,8 @@ router.post('/', function(req, res) {
 			//トークンをSessionに保存する
 			req.session.csrfToken = token;
 			res.render('index', {
+				select_hl_option: select_hl,
+				select_ml_option: select_ml,
 				title: titleName,
 				subTitle: subTitleName,
 				footer: footerString,
