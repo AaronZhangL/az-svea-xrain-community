@@ -24,6 +24,7 @@
 	<script src="/CodeMirror/addon/edit/matchbrackets.js"></script>
 
 	<link rel="stylesheet" href="CodeMirror/addon/fold/foldgutter.css" />
+	<script src="/CodeMirror/addon/display/placeholder.js"></script>
 	<script src="/CodeMirror/addon/fold/foldcode.js"></script>
 	<script src="/CodeMirror/addon/fold/foldgutter.js"></script>
 	<script src="/CodeMirror/addon/fold/brace-fold.js"></script>
@@ -35,7 +36,11 @@
 
 	<link rel='stylesheet' href='/stylesheets/style.css' />
 	<link rel='stylesheet' href='/stylesheets/sementic-ui-xrain.css' />
-
+	<style>
+		.CodeMirror pre.CodeMirror-placeholder {
+			color: #999;
+		}
+	</style>
 </head>
 
 <body>
@@ -390,7 +395,6 @@
 				</div>
 				<div class="column">
 					<div class="ui segment">
-
 					</div>
 				</div>
 			</div>
@@ -399,13 +403,13 @@
 				<!-- 2-1 -->
 				<div class="column">
 					<div class="ui segment">
-						<textarea id="hl_summary" name="hl_summary" class="textarea-style"><%= hl_summary %></textarea>
+						<textarea id="hl_summary" name="hl_summary" class="textarea-style" placeholder="Enter human language here."><%= hl_summary %></textarea>
 					</div>
 				</div>
 				<!-- 2-2 -->
 				<div class="column">
 					<div class="ui segment">
-						<textarea id="ml_source_code" name="ml_source_code"><%= ml_source_code %></textarea>
+						<textarea id="ml_source_code" name="ml_source_code" placeholder="No machine language result found!"><%= ml_source_code %></textarea>
 						<script>
 							CodeMirror.modeURL = "/CodeMirror/mode/%N/%N.js";
 							var editor = CodeMirror.fromTextArea(document.getElementById("ml_source_code"), {

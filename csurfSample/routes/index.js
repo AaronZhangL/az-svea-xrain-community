@@ -150,7 +150,7 @@ router.post('/', function(req, res) {
 				footer: footerString,
 				reqCsrf: token,
 				hl_summary: hl_summary,
-				ml_source_code: '# No results found!'
+				ml_source_code: ''
 			});
 		});
 
