@@ -22,6 +22,17 @@
 	<script src="/CodeMirror/mode/css/css.js"></script>
 	<script src="/CodeMirror/mode/htmlmixed/htmlmixed.js"></script>
 	<script src="/CodeMirror/addon/edit/matchbrackets.js"></script>
+
+	<link rel="stylesheet" href="CodeMirror/addon/fold/foldgutter.css" />
+	<script src="/CodeMirror/addon/fold/foldcode.js"></script>
+	<script src="/CodeMirror/addon/fold/foldgutter.js"></script>
+	<script src="/CodeMirror/addon/fold/brace-fold.js"></script>
+	<script src="/CodeMirror/addon/fold/xml-fold.js"></script>
+	<script src="/CodeMirror/addon/fold/indent-fold.js"></script>
+	<script src="/CodeMirror/addon/fold/markdown-fold.js"></script>
+	<script src="/CodeMirror/addon/fold/comment-fold.js"></script>
+	<script src="/CodeMirror/mode/javascript/javascript.js"></script>
+
 	<link rel='stylesheet' href='/stylesheets/style.css' />
 	<link rel='stylesheet' href='/stylesheets/sementic-ui-xrain.css' />
 
@@ -396,6 +407,7 @@
 					<div class="ui segment">
 						<textarea id="ml_source_code" name="ml_source_code"><%= ml_source_code %></textarea>
 						<script>
+							CodeMirror.modeURL = "/CodeMirror/mode/%N/%N.js";
 							var editor = CodeMirror.fromTextArea(document.getElementById("ml_source_code"), {
 								mode: {
 									name: "python",
@@ -408,13 +420,8 @@
 								indentUnit: 4,
 								indentWithTabs: false,
 								matchBrackets: true,
-								onKeyEvent: function(i, e) {
-									// Hook into F11
-									if ((e.keyCode == 122 || e.keyCode == 27) && e.type == 'keydown') {
-										e.stop();
-										return toggleFullscreenEditing();
-									}
-								}
+								foldGutter: true,
+								gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
 							});
 							var select_ml_opt = document.getElementById('select_ml').value;
 							editor.setOption("mode", {
