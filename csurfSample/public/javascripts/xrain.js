@@ -136,3 +136,23 @@ function getStyleCodeByLanguageName(name) {
 	};
 	return dic[name];
 };
+
+function getDropdownOptionByLanguageName(name) {
+	if (name == null || name == "") {
+		return "Python";
+
+	}
+	var lowercaseName = name.toLowerCase();
+	var dic = {
+		"javascript": "JavaScript (JSX)",
+		"python": "Python",
+		"java": "Java"
+		// TODO:
+	}
+	result = dic[lowercaseName];
+	if (result == null || result == "") {
+		return "Python";
+	} else {
+		return result;
+	}
+};

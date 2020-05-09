@@ -96,7 +96,6 @@ router.post('/', function(req, res) {
 	}
 	*/
 	// TODO: Add select_hl filter
-	// TODO: Set select_hl and select_ml items value on views page
 	axios.post(apiUrl, {
 		"hl_summary": hl_summary,
 		"hl_type": select_hl,

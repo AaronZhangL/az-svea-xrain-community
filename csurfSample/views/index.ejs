@@ -397,7 +397,8 @@
 						</div>
 						<script>
 							var option = "Python";
-							var select_ml_opt = document.getElementById('select_ml').value;
+							var select_ml_opt_origin = document.getElementById('select_ml').value;
+							var select_ml_opt = getDropdownOptionByLanguageName(select_ml_opt_origin);
 							if (select_ml_opt != "Python" && select_ml_opt != null && select_ml_opt != "") {
 								option = select_ml_opt
 							}
