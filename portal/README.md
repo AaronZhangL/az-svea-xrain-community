@@ -1,4 +1,4 @@
-csurfSample
+svea-xrain-frontend
 ===========
 
 csurf use sample

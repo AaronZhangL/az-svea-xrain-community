@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('csurfSample');
+var debug = require('debug')('svea-xrain-frontend');
 var cluster = require('express-cluster');
 
 /**
