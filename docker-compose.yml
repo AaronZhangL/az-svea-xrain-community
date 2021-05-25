@@ -20,9 +20,9 @@ services:
     build:
       context: .
       dockerfile: ./docker/frontend/Dockerfile
-    #command: bash -l -c "cd /frontend/portal && npm test"
+    command: bash -l -c "cd /frontend/ && npm run prod"
     #entrypoint:
-    #  - /frontend/portal/az-startDevApp.sh
+    #  - /frontend/az-startDevApp.sh
     ports:
       - "3000:3000"
     depends_on:

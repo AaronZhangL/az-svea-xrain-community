@@ -1,4 +1,2 @@
-pwd
-ls -al
-npm test
+npm run dev
 
