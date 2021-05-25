@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  redisdb4frontend:
+    container_name: svea_xrain_redisdb4frontend
+    image: "svea_xrain_redisdb4frontend:latest"
+    build:
+      context: .
+      dockerfile: ./docker/redisdb4frontend/Dockerfile
+    volumes:
+      - "./data/redis:/data"
+    ports:
+      - "6379:6379"
+    networks:
+      - xrainnet
+    
+  frontend:
+    container_name: svea_xrain_frontend
+    image: svea_xrain_frontend:latest
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    #command: bash -l -c "cd /frontend/portal && npm test"
+    #entrypoint:
+    #  - /frontend/portal/az-startDevApp.sh
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redisdb4frontend
+    stdin_open: true
+    tty: true
+    networks:
+      - xrainnet
+
+volumes:
+  data:
+  esdata:
+  node_modules:
+
+networks:
+  xrainnet:
