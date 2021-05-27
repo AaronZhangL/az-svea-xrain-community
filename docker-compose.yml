@@ -21,8 +21,6 @@ services:
       context: .
       dockerfile: ./docker/frontend/Dockerfile
     command: bash -l -c "cd /frontend/ && npm run prod"
-    #entrypoint:
-    #  - /frontend/az-startDevApp.sh
     ports:
       - "3000:3000"
     depends_on:
