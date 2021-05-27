@@ -1,0 +1,1 @@
+ docker rm svea_xrain_frontend
