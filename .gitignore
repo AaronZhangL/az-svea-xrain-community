@@ -64,12 +64,14 @@ typings/
 # next.js build output
 .next
 
-# az-svea-Xrain
-.DS_Store
-.DS_Store
-csurfSample/.DS_Store
+## az-svea-Xrain
+# iOS temp file
+*.DS_Store
+# redis DB data fiel
 *.rdb
+# config file
 config/*.json
+# github.com token file
 *.token.source
 
 
