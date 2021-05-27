@@ -70,6 +70,6 @@ typings/
 csurfSample/.DS_Store
 *.rdb
 config/*.json
-*.token.sh
+*.token.source
 
 
