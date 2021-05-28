@@ -74,5 +74,6 @@ config/*.json
 # download config file script
 0_downloadRemoteConfigFile.sh
 *.token.source
+*.bak
 
 
