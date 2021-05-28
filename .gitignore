@@ -71,7 +71,8 @@ typings/
 *.rdb
 # config file
 config/*.json
-# github.com token file
+# download config file script
+0_downloadRemoteConfigFile.sh
 *.token.source
 
 
